@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sandbox.FSharp.Library\Sandbox.FSharp.Library.fsproj" />
+    <ProjectReference Include="..\Sandbox.VisualBasic.Library\Sandbox.VisualBasic.Library.vbproj" />
+  </ItemGroup>
+
+</Project>
