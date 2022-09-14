@@ -12,31 +12,26 @@ using WebDriverManager;
 
 namespace Sandbox.Selenium
 {
-    internal class DriverFixture : IDisposable
+    internal abstract class DriverFixture : IDisposable
     {
         private const double WAIT_FOR_ELEMENT_TIMEOUT = 10.0;
         private bool isDisposed;
 
-        public WebDriverWait WebDriverWait { get; set; }
-        public IWebDriver WebDriver { get; set; }
-
-        
+        public DriverAdapter Driver { get; set; }
+        public virtual double WaitForElementTimeout { get; set; } = WAIT_FOR_ELEMENT_TIMEOUT;
 
         public DriverFixture()
         {
-            new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.Latest);
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArgument("--headless");
-
-            this.WebDriver = new ChromeDriver(chromeOptions);
-            this.WebDriverWait = new WebDriverWait(this.WebDriver, TimeSpan.FromSeconds(WAIT_FOR_ELEMENT_TIMEOUT));
+            this.Driver = new DriverAdapter();
         }
+
+        protected abstract void InitializeDriver();
 
         public void Dispose()
         {
             if (!this.isDisposed)
             {
-
+                this.Driver.Dispose();
                 this.isDisposed = true;
             }
         }
