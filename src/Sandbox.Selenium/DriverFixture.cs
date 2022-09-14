@@ -1,28 +1,28 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebDriverManager.DriverConfigs.Impl;
-using WebDriverManager.Helpers;
-using WebDriverManager;
-
-namespace Sandbox.Selenium
+﻿namespace Sandbox.Selenium
 {
+    using System;
+    using System.Threading;
+
     internal abstract class DriverFixture : IDisposable
     {
         private const double WAIT_FOR_ELEMENT_TIMEOUT = 10.0;
         private bool isDisposed;
 
-        public DriverAdapter Driver { get; set; }
+        public ThreadLocal<DriverAdapter> Driver { get; set; }
+
+        public static ThreadLocal<string>? TestName { get; set; }
+
         public virtual double WaitForElementTimeout { get; set; } = WAIT_FOR_ELEMENT_TIMEOUT;
 
         public DriverFixture()
         {
-            this.Driver = new DriverAdapter();
+#if (DEBUG)
+            this.Driver = new ThreadLocal<DriverAdapter>(() => new DriverAdapter());
+#elif (RELEASE)
+            this.Driver = new ThreadLocal<DriverAdapter>(() => new DriverAdapter());
+#else
+            throw new ArgumentException("Test environment not supported");
+#endif
         }
 
         protected abstract void InitializeDriver();

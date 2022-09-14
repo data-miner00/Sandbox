@@ -53,6 +53,22 @@ namespace Sandbox.Selenium
         {
             var element = this.WaitAndFindElement(By.LinkText("Anchor"));
 
+            try
+            {
+                Console.WriteLine();
+            }
+            catch (Exception ex)
+            {
+                ((IJavaScriptExecutor)this.driver).ExecuteScript("lambda-exceptions", new List<string>
+                {
+                    ex.Message,
+                    ex.StackTrace!,
+                });
+            }
+            finally
+            {
+                ((IJavaScriptExecutor)this.driver).ExecuteScript("lambda-status=" + "passed");
+            }
         }
 
         private IWebElement WaitAndFindElement(By locator)
