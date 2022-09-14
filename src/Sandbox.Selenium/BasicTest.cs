@@ -2,9 +2,11 @@
 {
     using FluentAssertions;
     using OpenQA.Selenium.Chrome;
+    using System.Diagnostics;
 
     [Collection("Chrome")] // By default xUnit categorize by different class
-    public class BasicTest
+    [DebuggerDisplay("")]
+    public class BasicTest : LongLivedMarshalByRefObject
     {
         private const string Url = "http://localhost:3000";
 
