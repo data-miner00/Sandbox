@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.ConsoleApp", "Sandb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Selenium", "Sandbox.Selenium\Sandbox.Selenium.csproj", "{2D9930D7-BC7E-443A-A2D6-B6D9501F7016}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Sandbox.FSharp.Library", "Sandbox.FSharp.Library\Sandbox.FSharp.Library.fsproj", "{061119F7-8F82-4DA9-A19E-5D8E8872A590}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Sandbox.FSharp.Library", "Sandbox.FSharp.Library\Sandbox.FSharp.Library.fsproj", "{061119F7-8F82-4DA9-A19E-5D8E8872A590}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Sandbox.VisualBasic.Library", "Sandbox.VisualBasic.Library\Sandbox.VisualBasic.Library.vbproj", "{3C5F32F5-83B7-4BE0-8BC1-1F617CB50295}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Sandbox.VisualBasic.Library", "Sandbox.VisualBasic.Library\Sandbox.VisualBasic.Library.vbproj", "{3C5F32F5-83B7-4BE0-8BC1-1F617CB50295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.SQLite", "Sandbox.SQLite\Sandbox.SQLite.csproj", "{97219431-D237-4488-912A-14498A7F7D62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3C5F32F5-83B7-4BE0-8BC1-1F617CB50295}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C5F32F5-83B7-4BE0-8BC1-1F617CB50295}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C5F32F5-83B7-4BE0-8BC1-1F617CB50295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97219431-D237-4488-912A-14498A7F7D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97219431-D237-4488-912A-14498A7F7D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97219431-D237-4488-912A-14498A7F7D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97219431-D237-4488-912A-14498A7F7D62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
