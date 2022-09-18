@@ -11,7 +11,13 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Sandbox.FSharp.Library", "S
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Sandbox.VisualBasic.Library", "Sandbox.VisualBasic.Library\Sandbox.VisualBasic.Library.vbproj", "{3C5F32F5-83B7-4BE0-8BC1-1F617CB50295}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.SQLite", "Sandbox.SQLite\Sandbox.SQLite.csproj", "{97219431-D237-4488-912A-14498A7F7D62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.SQLite", "Sandbox.SQLite\Sandbox.SQLite.csproj", "{97219431-D237-4488-912A-14498A7F7D62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CDDB08B2-3D44-4A86-A99F-C368BAE6D297}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
