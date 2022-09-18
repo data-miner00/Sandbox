@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sandbox.Selenium
+﻿namespace Sandbox.Selenium
 {
+    using System;
+    using System.ComponentModel;
+
     internal class Utility
     {
         public Utility()

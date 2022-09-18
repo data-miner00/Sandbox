@@ -16,9 +16,9 @@
 
         public DriverFixture()
         {
-#if (DEBUG)
+#if DEBUG
             this.Driver = new ThreadLocal<DriverAdapter>(() => new DriverAdapter());
-#elif (RELEASE)
+#elif RELEASE
             this.Driver = new ThreadLocal<DriverAdapter>(() => new DriverAdapter());
 #else
             throw new ArgumentException("Test environment not supported");

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using xRetry;
-using Xunit.Abstractions;
-using Xunit.Sdk;
-
-namespace Sandbox.Selenium.Retry
+﻿namespace Sandbox.Selenium.Retry
 {
+    using System.Collections.Generic;
+    using Xunit.Abstractions;
+    using Xunit.Sdk;
+
     internal class RetryRunTheoryDiscoverer : IXunitTestCaseDiscoverer
     {
         internal readonly IMessageSink diagnosticMessageSink;

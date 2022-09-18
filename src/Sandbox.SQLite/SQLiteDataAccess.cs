@@ -1,16 +1,13 @@
-﻿using Dapper;
-using Sandbox.VisualBasic.Library;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sandbox.SQLite
+﻿namespace Sandbox.SQLite
 {
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Data;
+    using System.Data.SQLite;
+    using System.Linq;
+    using Dapper;
+    using Sandbox.VisualBasic.Library;
+
     public class SQLiteDataAccess
     {
         public static List<Person> LoadPeople()

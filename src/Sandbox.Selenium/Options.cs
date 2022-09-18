@@ -21,7 +21,7 @@
             options.AddAdditionalChromeOption("network", true);
             options.AddAdditionalChromeOption("timezone", "UTC+03:00");
 
-            var driver = new RemoteWebDriver(new Uri(""), options);
+            var driver = new RemoteWebDriver(new Uri(string.Empty), options);
         }
     }
 }

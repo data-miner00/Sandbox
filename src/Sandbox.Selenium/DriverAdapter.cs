@@ -1,31 +1,22 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Edge;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Safari;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
-using WebDriverManager.Helpers;
-
-namespace Sandbox.Selenium
+﻿namespace Sandbox.Selenium
 {
+    using System;
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium.Edge;
+    using OpenQA.Selenium.Firefox;
+    using OpenQA.Selenium.Safari;
+    using OpenQA.Selenium.Support.UI;
+    using WebDriverManager;
+    using WebDriverManager.DriverConfigs.Impl;
+    using WebDriverManager.Helpers;
+
     internal class DriverAdapter : IDisposable
     {
         private const double WAIT_FOR_ATTRIBUTE_TIMEOUT = 30;
         private IWebDriver driver;
         private WebDriverWait webDriverWait;
         private bool isDisposed;
-
-        public DriverAdapter()
-        {
-
-        }
 
         public void Start(BrowserType browserType)
         {

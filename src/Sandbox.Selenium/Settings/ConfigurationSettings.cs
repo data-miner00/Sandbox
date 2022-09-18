@@ -1,13 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sandbox.Selenium.Settings
+﻿namespace Sandbox.Selenium.Settings
 {
+    using System.Linq;
+    using System.Reflection;
+    using Microsoft.Extensions.Configuration;
+
     internal static class ConfigurationSettings
     {
         private static readonly IConfigurationRoot Root = InitializeConfiguration();

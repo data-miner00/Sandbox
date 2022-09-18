@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sandbox.Selenium.Pages
+﻿namespace Sandbox.Selenium.Pages
 {
-    internal class IPage
+    /// <summary>
+    /// The interface for Page test.
+    /// </summary>
+    internal interface IPage
     {
     }
 }

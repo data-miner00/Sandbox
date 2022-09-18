@@ -5,6 +5,9 @@
     using OpenQA.Selenium.Support.UI;
     using SeleniumExtras.WaitHelpers;
 
+    /// <summary>
+    /// The main page of testing.
+    /// </summary>
     internal class MainPage
     {
         private IWebDriver driver;
@@ -45,7 +48,7 @@
             if (expectedCount <= 0)
             {
                 ValidateInnerTextIs(resultSpan, $"{expectedCount} item left");
-            } 
+            }
             else
             {
                 ValidateInnerTextIs(resultSpan, $"{expectedCount} item left");
