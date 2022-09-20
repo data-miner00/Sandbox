@@ -13,10 +13,4 @@
     <ProjectReference Include="..\Sandbox.VisualBasic.Library\Sandbox.VisualBasic.Library.vbproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="person.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
