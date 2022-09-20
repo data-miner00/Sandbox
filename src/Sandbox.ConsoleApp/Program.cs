@@ -8,12 +8,24 @@
     {
         static void Main(string[] args)
         {
+            LoadComplexUser();
+        }
+
+        private static void Test()
+        {
             Say.hello("Me");
 
             var person = new Person
             {
                 FirstName = "first",
                 LastName = "last",
+            };
+
+            var user = new User
+            {
+                Username = string.Empty,
+                Password = string.Empty,
+                Favorites = new List<string> { "item1", "item2", "item3" },
             };
 
             LoadPeopleList();
@@ -47,6 +59,27 @@
             };
 
             SQLiteDataAccess.SavePerson(person);
+        }
+
+        private static void LoadComplexUser()
+        {
+            var user = new User
+            {
+                Username = "my name",
+                Password = "123",
+                Favorites = new List<string>
+                {
+                    "fav_1",
+                    "fav_2",
+                    "fav_3",
+                },
+            };
+
+            TryComplexDataStructure.SaveUser(user);
+
+            var users = TryComplexDataStructure.LoadUser();
+
+            Console.ReadLine();
         }
     }
 }
