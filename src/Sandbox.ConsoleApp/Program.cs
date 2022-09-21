@@ -8,7 +8,7 @@
     {
         static void Main(string[] args)
         {
-            LoadComplexUser();
+            LoadEnumArticle();
         }
 
         private static void Test()
@@ -78,6 +78,22 @@
             TryComplexDataStructure.SaveUser(user);
 
             var users = TryComplexDataStructure.LoadUser();
+
+            Console.ReadLine();
+        }
+
+        private static void LoadEnumArticle()
+        {
+            var article = new Article
+            {
+                Category = Category.Science,
+                Title = "Title",
+                Id = 1,
+            };
+
+            TryComplexDataStructureWithEnum.SaveArticle(article);
+
+            var articles = TryComplexDataStructureWithEnum.LoadArticles();
 
             Console.ReadLine();
         }
