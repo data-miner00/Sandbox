@@ -8,6 +8,13 @@
     {
         static void Main(string[] args)
         {
+            var customer = new Customer
+            {
+                FirstName = "shaun",
+                LastName = "mendez",
+                Age = 23,
+            };
+
             LoadEnumArticle();
         }
 
@@ -86,9 +93,8 @@
         {
             var article = new Article
             {
-                Category = Category.Science,
+                Category = Category.Philosophy,
                 Title = "Title",
-                Id = 1,
             };
 
             TryComplexDataStructureWithEnum.SaveArticle(article);
