@@ -19,7 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Loggings", "Sandbox.Loggings\Sandbox.Loggings.csproj", "{0A718B99-41F2-45E4-B5A6-1887918FFD26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Loggings", "Sandbox.Loggings\Sandbox.Loggings.csproj", "{0A718B99-41F2-45E4-B5A6-1887918FFD26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Events", "Sandbox.Events\Sandbox.Events.csproj", "{D142C5D9-71D7-44B4-8E71-A81D765B3A1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{0A718B99-41F2-45E4-B5A6-1887918FFD26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A718B99-41F2-45E4-B5A6-1887918FFD26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A718B99-41F2-45E4-B5A6-1887918FFD26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D142C5D9-71D7-44B4-8E71-A81D765B3A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D142C5D9-71D7-44B4-8E71-A81D765B3A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D142C5D9-71D7-44B4-8E71-A81D765B3A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D142C5D9-71D7-44B4-8E71-A81D765B3A1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
