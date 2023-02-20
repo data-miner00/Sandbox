@@ -1,16 +1,26 @@
 ﻿namespace Sandbox.Events
 {
     using System;
+    using Sandbox.Core;
 
+    /// <summary>
+    /// An arbitrary delegate declared at the namespace level.
+    /// </summary>
+    /// <param name="sender">The object that emits the event.</param>
+    /// <param name="args">The arguments passed along with the event.</param>
     internal delegate void EventDelegate(object? sender, EventArgs args);
 
-    internal static class Delegates
+    /// <summary>
+    /// A class that house sample code for delegates.
+    /// </summary>
+    internal class Delegates : IDemo
     {
         public static int counter = 0;
 
         public delegate string DelegateFunc(string arg);
 
-        public static void Demo()
+        /// <inheritdoc/>
+        public void Demo()
         {
             DelegateFunc func = new DelegateFunc(DelegateFuncImpl); // instantiate the delegate and point to DelegateFuncImpl
 
@@ -36,7 +46,7 @@
             return "const";
         }
 
-        public static void SafeDemo()
+        public void SafeDemo()
         {
             if (EventDelegate != null) // check if anyone is listening to the event, if not, no need to call it
             {
@@ -48,9 +58,9 @@
             // EventDelegate = null;
         }
 
-        public static event EventDelegate EventDelegate;
+        public event EventDelegate EventDelegate;
 
-        public static void OnEventRaised(object? sender, EventArgs args)
+        public void OnEventRaised(object? sender, EventArgs args)
         {
             Console.WriteLine(args);
         }

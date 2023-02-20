@@ -2,10 +2,11 @@
 {
     using System;
     using System.Timers;
+    using Sandbox.Core;
 
-    internal static class Timers
+    internal class Timers : IDemo
     {
-        public static void Demo()
+        public void Demo()
         {
             Timer timer = new Timer(1000); // timer that runs every 1s
 
