@@ -38,7 +38,17 @@
             logger.Information("Hello world");
         }
 
-        private class Color
+        public static void DestructureByTransform()
+        {
+            var logger = new LoggerConfiguration()
+                .Destructure.ByTransforming<Color>(x => new { x.Red })
+                .WriteTo.Console()
+                .CreateLogger();
+
+            logger.Information("Fave {Color}", new Color { Red = 255 });
+        }
+
+        private sealed class Color
         {
             public int Red { get; set; }
 
@@ -47,5 +57,23 @@
                 return "Red" + this.Red.ToString();
             }
         }
+
+        /*
+         * Sinks are place we can put the data in.
+         *
+         * Console
+         * File/RollingFile
+         * Log4net
+         * Loggly
+         * Loggr
+         * ElasticSearch
+         * ElmahIO
+         * ElasticSearch
+         * MongoDB
+         * RavenDB
+         * Seq
+         * TextWriter
+         * CouchDB
+         */
     }
 }
