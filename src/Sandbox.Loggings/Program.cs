@@ -20,6 +20,32 @@
                 .CreateLogger();
 
             logger1.Information("hello world");
+
+            logger.Information("Added user {UserName}, Age {UserAge}. Added on {Created}. Guid: {Guid}, {List}", "hello", 23, DateTime.Now, Guid.NewGuid(), new List<string> { "hello", "world" });
+
+            // Destructure object properties
+            // If no destructure, Serilog will call the ToString() method for the class
+            logger.Information("Color is: {@Color}", new Color { Red = 255 });
+        }
+
+        public static void RollingLog()
+        {
+            // rollinglogfile-20140520.log
+            var logger = new LoggerConfiguration()
+                .WriteTo.RollingFile("rollinglogfile.log", retainedFileCountLimit: 2) // Only 2 concurrent log file can exist.
+                .CreateLogger();
+
+            logger.Information("Hello world");
+        }
+
+        private class Color
+        {
+            public int Red { get; set; }
+
+            public override string ToString()
+            {
+                return "Red" + this.Red.ToString();
+            }
         }
     }
 }
