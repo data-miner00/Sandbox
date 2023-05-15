@@ -9,7 +9,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using Dapper;
-    using Sandbox.VisualBasic.Library;
+    using Sandbox.Library.VB;
 
     public class DataTransferObject
     {

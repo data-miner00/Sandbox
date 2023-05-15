@@ -1,4 +1,4 @@
-﻿namespace Sandbox.FSharp.Library
+﻿namespace Sandbox.Library.FSharp
 
 module Say =
     let hello name =

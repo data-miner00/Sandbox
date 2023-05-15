@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sandbox.VisualBasic.Library\Sandbox.VisualBasic.Library.vbproj" />
+    <ProjectReference Include="..\Sandbox.Library.VB\Sandbox.Library.VB.vbproj" />
   </ItemGroup>
 
   <ItemGroup>

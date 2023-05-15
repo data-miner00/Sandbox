@@ -1,4 +1,4 @@
-﻿namespace Sandbox.FSharp.Library
+﻿namespace Sandbox.Library.FSharp
 
 type Customer'(firstName: string, lastName: string, age: int) = 
     member this.FirstName = firstName

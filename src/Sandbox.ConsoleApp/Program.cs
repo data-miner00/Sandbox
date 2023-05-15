@@ -1,8 +1,8 @@
 ﻿namespace Sandbox.ConsoleApp
 {
-    using Sandbox.FSharp.Library;
+    using Sandbox.Library.FSharp;
+    using Sandbox.Library.VB;
     using Sandbox.SQLite;
-    using Sandbox.VisualBasic.Library;
 
     internal class Program
     {

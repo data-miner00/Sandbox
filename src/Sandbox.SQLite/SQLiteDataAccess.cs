@@ -6,7 +6,7 @@
     using System.Data.SQLite;
     using System.Linq;
     using Dapper;
-    using Sandbox.VisualBasic.Library;
+    using Sandbox.Library.VB;
 
     public class SQLiteDataAccess
     {

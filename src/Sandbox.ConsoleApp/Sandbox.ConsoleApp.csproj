@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -10,8 +10,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Sandbox.Core\Sandbox.Core.csproj" />
     <ProjectReference Include="..\Sandbox.FSharp.Library\Sandbox.FSharp.Library.fsproj" />
+    <ProjectReference Include="..\Sandbox.Library.FSharp\Sandbox.Library.FSharp.fsproj" />
+    <ProjectReference Include="..\Sandbox.Library.VB\Sandbox.Library.VB.vbproj" />
     <ProjectReference Include="..\Sandbox.SQLite\Sandbox.SQLite.csproj" />
-    <ProjectReference Include="..\Sandbox.VisualBasic.Library\Sandbox.VisualBasic.Library.vbproj" />
   </ItemGroup>
 
 </Project>

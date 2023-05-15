@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>Sandbox.VisualBasic.Library</RootNamespace>
+    <RootNamespace>Sandbox.Library.VB</RootNamespace>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
