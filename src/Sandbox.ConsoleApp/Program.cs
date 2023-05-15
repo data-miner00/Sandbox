@@ -1,107 +1,20 @@
 ﻿namespace Sandbox.ConsoleApp
 {
-    using Sandbox.Library.FSharp;
-    using Sandbox.Library.VB;
-    using Sandbox.SQLite;
+    using System;
 
-    internal class Program
+    /// <summary>
+    /// A sandbox class to play around and experiment with.
+    /// </summary>
+    internal static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// The main entry point of the sandbox.
+        /// </summary>
+        /// <param name="args">The command line arguments.</param>
+        public static void Main(string[] args)
         {
-            var customer = new Customer
-            {
-                FirstName = "shaun",
-                LastName = "mendez",
-                Age = 23,
-            };
-
-            LoadEnumArticle();
-        }
-
-        private static void Test()
-        {
-            Say.hello("Me");
-
-            var person = new Person
-            {
-                FirstName = "first",
-                LastName = "last",
-            };
-
-            var user = new User
-            {
-                Username = string.Empty,
-                Password = string.Empty,
-                Favorites = new List<string> { "item1", "item2", "item3" },
-            };
-
-            LoadPeopleList();
-
-            for (var i = 0; i < 2; i++)
-            {
-                var firstName = Console.ReadLine();
-                var lastName = Console.ReadLine();
-
-                SavePerson(firstName!, lastName!);
-            }
-        }
-
-        private static void LoadPeopleList()
-        {
-            var people = SQLiteDataAccess.LoadPeople();
-            int i = 1;
-
-            foreach (var person in people)
-            {
-                Console.WriteLine($"{i++}. FN: {person.FirstName}, LN: {person.LastName}");
-            }
-        }
-
-        private static void SavePerson(string firstName, string lastName)
-        {
-            var person = new Person
-            {
-                FirstName = firstName,
-                LastName = lastName,
-            };
-
-            SQLiteDataAccess.SavePerson(person);
-        }
-
-        private static void LoadComplexUser()
-        {
-            var user = new User
-            {
-                Username = "my name",
-                Password = "123",
-                Favorites = new List<string>
-                {
-                    "fav_1",
-                    "fav_2",
-                    "fav_3",
-                },
-            };
-
-            TryComplexDataStructure.SaveUser(user);
-
-            var users = TryComplexDataStructure.LoadUser();
-
-            Console.ReadLine();
-        }
-
-        private static void LoadEnumArticle()
-        {
-            var article = new Article
-            {
-                Category = Category.Philosophy,
-                Title = "Title",
-            };
-
-            TryComplexDataStructureWithEnum.SaveArticle(article);
-
-            var articles = TryComplexDataStructureWithEnum.LoadArticles();
-
-            Console.ReadLine();
+            Console.Out.WriteLine("Edit the method with features to play around");
+            Console.Out.WriteLine("This project will be excluded from version control");
         }
     }
 }
