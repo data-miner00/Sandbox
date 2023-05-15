@@ -1,4 +1,4 @@
-﻿namespace Sandbox.Concepts
+﻿namespace Sandbox.Concepts.Syntax
 {
     using System;
 

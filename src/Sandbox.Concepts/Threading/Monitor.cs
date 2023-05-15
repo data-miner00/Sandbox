@@ -1,4 +1,4 @@
-﻿namespace Sandbox.Concepts
+﻿namespace Sandbox.Concepts.Threading
 {
     using System;
     using System.Threading.Tasks;

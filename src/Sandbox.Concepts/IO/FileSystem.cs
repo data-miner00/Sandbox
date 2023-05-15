@@ -1,4 +1,4 @@
-﻿namespace Sandbox.Concepts
+﻿namespace Sandbox.Concepts.IO
 {
     using System;
     using Sandbox.Core;
