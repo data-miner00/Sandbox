@@ -1,4 +1,4 @@
-﻿namespace Sandbox.ConsoleApp
+﻿namespace Sandbox.Concepts
 {
     using System;
     using System.Collections.Generic;
