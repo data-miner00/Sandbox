@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Sandbox.Core\Sandbox.Core.csproj" />
-    <ProjectReference Include="..\Sandbox.FSharp.Library\Sandbox.FSharp.Library.fsproj" />
     <ProjectReference Include="..\Sandbox.Library.FSharp\Sandbox.Library.FSharp.fsproj" />
     <ProjectReference Include="..\Sandbox.Library.VB\Sandbox.Library.VB.vbproj" />
     <ProjectReference Include="..\Sandbox.SQLite\Sandbox.SQLite.csproj" />
