@@ -5,7 +5,7 @@
     /// <summary>
     /// The options for Blob Storage access.
     /// </summary>
-    public class BlobStorageOptions
+    public sealed class BlobStorageOptions
     {
         /// <summary>
         /// Gets or sets the storage name.
