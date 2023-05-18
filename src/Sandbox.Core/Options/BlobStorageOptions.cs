@@ -14,6 +14,12 @@
         public string StorageName { get; set; }
 
         /// <summary>
+        /// Gets or sets the storage key.
+        /// </summary>
+        [Required]
+        public string StorageKey { get; set; }
+
+        /// <summary>
         /// Gets or sets the storage connection string.
         /// </summary>
         [Required]
@@ -24,5 +30,11 @@
         /// </summary>
         [Required]
         public string ContainerName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Blob Service endpoint.
+        /// </summary>
+        [Required]
+        public string BlobServiceEndpoint { get; set; }
     }
 }
