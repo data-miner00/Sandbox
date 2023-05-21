@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Concepts", "Sandbox
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Azure", "Sandbox.Azure\Sandbox.Azure.csproj", "{0B3B13F3-7638-4656-B3FF-CBFE9E375E14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Azure.Functions", "Sandbox.Azure.Functions\Sandbox.Azure.Functions.csproj", "{F536E7AB-8DF2-4BD1-8C4C-82843F0F2232}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Azure.Functions", "Sandbox.Azure.Functions\Sandbox.Azure.Functions.csproj", "{F536E7AB-8DF2-4BD1-8C4C-82843F0F2232}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Sandbox.IpCheck", "Sandbox.IpCheck\Sandbox.IpCheck.fsproj", "{0D7D2910-B96A-425B-9A83-9684BA9D6C12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{F536E7AB-8DF2-4BD1-8C4C-82843F0F2232}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F536E7AB-8DF2-4BD1-8C4C-82843F0F2232}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F536E7AB-8DF2-4BD1-8C4C-82843F0F2232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D7D2910-B96A-425B-9A83-9684BA9D6C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D7D2910-B96A-425B-9A83-9684BA9D6C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D7D2910-B96A-425B-9A83-9684BA9D6C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D7D2910-B96A-425B-9A83-9684BA9D6C12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
