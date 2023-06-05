@@ -1,10 +1,11 @@
 ﻿namespace Sandbox.Aws.Handlers
 {
     using System.Threading.Tasks;
+    using MediatR;
     using Sandbox.Core.Events;
     using Serilog;
 
-    public class CustomerUpdatedHandler
+    public class CustomerUpdatedHandler : IRequestHandler<CustomerUpdatedEvent>
     {
         private readonly ILogger logger;
 

@@ -1,12 +1,8 @@
 ﻿namespace Sandbox.Core.Events
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
-    public class CustomerCreatedEvent
+    public class CustomerCreatedEvent : ISqsMessage
     {
         public Guid Id { get; set; }
 
