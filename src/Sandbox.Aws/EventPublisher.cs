@@ -9,9 +9,9 @@
 
     internal class EventPublisher
     {
-        private readonly AmazonSQSClient sqsClient;
+        private readonly IAmazonSQS sqsClient;
 
-        public EventPublisher(AmazonSQSClient sqsClient)
+        public EventPublisher(IAmazonSQS sqsClient)
         {
             this.sqsClient = sqsClient;
         }
