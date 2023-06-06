@@ -26,7 +26,7 @@
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var queueUrlResponse = await this.sqsClient.GetQueueUrlAsync("customers");
+            var queueUrlResponse = await this.sqsClient.GetQueueUrlAsync("customers", stoppingToken);
 
             var receiveMessageRequest = new ReceiveMessageRequest
             {

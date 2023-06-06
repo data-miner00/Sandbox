@@ -7,11 +7,11 @@
     using Amazon.SQS.Model;
     using Sandbox.Core.Events;
 
-    internal class EventPublisher
+    internal class SqsPublisher
     {
         private readonly IAmazonSQS sqsClient;
 
-        public EventPublisher(IAmazonSQS sqsClient)
+        public SqsPublisher(IAmazonSQS sqsClient)
         {
             this.sqsClient = sqsClient;
         }

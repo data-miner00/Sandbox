@@ -2,6 +2,7 @@
 {
     using Amazon;
     using Amazon.SQS;
+    using Amazon.SimpleNotificationService;
 
     internal static class Program
     {
@@ -14,6 +15,8 @@
             {
                 RegionEndpoint = RegionEndpoint.APNortheast1,
             });
+
+            var snsClient = new AmazonSimpleNotificationServiceClient();
         }
     }
 }

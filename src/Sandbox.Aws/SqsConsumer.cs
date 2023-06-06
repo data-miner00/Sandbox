@@ -6,11 +6,11 @@
     using Amazon.SQS;
     using Amazon.SQS.Model;
 
-    internal class EventConsumer
+    internal class SqsConsumer
     {
         private readonly IAmazonSQS sqsClient;
 
-        public EventConsumer(IAmazonSQS sqsClient)
+        public SqsConsumer(IAmazonSQS sqsClient)
         {
             this.sqsClient = sqsClient;
         }
