@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.103.18" />
     <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.7.101.77" />
     <PackageReference Include="AWSSDK.SQS" Version="3.7.102.15" />
     <PackageReference Include="MediatR" Version="12.0.1" />
