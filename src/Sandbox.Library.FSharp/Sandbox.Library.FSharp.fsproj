@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Dtos\CustomerDto.fs" />
     <Compile Include="Customer.fs" />
     <Compile Include="Library.fs" />
   </ItemGroup>
