@@ -28,6 +28,7 @@ internal class CustomerRepository
         {
             TableName = TableName,
             Item = customerAsAttributes,
+            ConditionExpression = "attribute_not_exist(pk) and attribute_not_exist(sk)",
         };
 
         var response = await this.dynamoDb.PutItemAsync(createItemRequest);
@@ -56,6 +57,49 @@ internal class CustomerRepository
 
         var itemAsDocument = Document.FromAttributeMap(response.Item);
         return JsonSerializer.Deserialize<CustomerDto>(itemAsDocument.ToJson());
+    }
+
+    /// <summary>
+    /// Retrieves the item by scanning the entire cluster. Highly discouraged. Very expensive.
+    /// </summary>
+    /// <returns>The retrieved Customers.</returns>
+    public async Task<IEnumerable<CustomerDto>> GetAll()
+    {
+        var scanRequest = new ScanRequest
+        {
+            TableName = TableName,
+            Limit = 10, // Scan max 10 items
+        };
+
+        var response = await this.dynamoDb.ScanAsync(scanRequest);
+
+        return response.Items.Select(x =>
+        {
+            var json = Document.FromAttributeMap(x).ToJson();
+            return JsonSerializer.Deserialize<CustomerDto>(json);
+        });
+    }
+
+    public async Task<bool> UpdateAsync(CustomerDto customer, DateTime requestStarted)
+    {
+        customer.UpdatedAt = DateTime.UtcNow;
+        var customerAsJson = JsonSerializer.Serialize(customer);
+        var customerAsAttributes = Document.FromJson(customerAsJson).ToAttributeMap();
+
+        var updateItemRequest = new PutItemRequest
+        {
+            TableName = TableName,
+            Item = customerAsAttributes,
+            ConditionExpression = "UpdatedAt < :requestStarted",
+            ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+            {
+                { ":requestStarted", new AttributeValue { S = requestStarted.ToString("O") } },
+            },
+        };
+
+        var response = await this.dynamoDb.PutItemAsync(updateItemRequest);
+
+        return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
 
     public async Task<bool> DeleteAsync(Guid id)
