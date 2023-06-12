@@ -1,44 +1,55 @@
-﻿namespace Sandbox.Aws
+﻿namespace Sandbox.Aws;
+
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Amazon.SQS;
+using Amazon.SQS.Model;
+using Sandbox.Core.Events;
+
+/// <summary>
+/// The event publisher to the Simple Queue System.
+/// </summary>
+internal class SqsPublisher
 {
-    using System.Collections.Generic;
-    using System.Text.Json;
-    using System.Threading.Tasks;
-    using Amazon.SQS;
-    using Amazon.SQS.Model;
-    using Sandbox.Core.Events;
+    private readonly IAmazonSQS sqsClient;
 
-    internal class SqsPublisher
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SqsPublisher"/> class.
+    /// </summary>
+    /// <param name="sqsClient">The <see cref="AmazonSQSClient"/> instance.</param>
+    public SqsPublisher(IAmazonSQS sqsClient)
     {
-        private readonly IAmazonSQS sqsClient;
+        this.sqsClient = sqsClient;
+    }
 
-        public SqsPublisher(IAmazonSQS sqsClient)
+    /// <summary>
+    /// Publishes the customer created event.
+    /// </summary>
+    /// <param name="event">The <see cref="CustomerCreatedEvent"/>.</param>
+    /// <returns>Nothing.</returns>
+    public async Task PublishCustomerCreatedEvent(CustomerCreatedEvent @event)
+    {
+        // To get the url without hardcoding
+        var queueUrlResponse = await this.sqsClient.GetQueueUrlAsync("customers");
+
+        var sendMessageRequest = new SendMessageRequest
         {
-            this.sqsClient = sqsClient;
-        }
-
-        public async Task PublishCustomerCreatedEvent(CustomerCreatedEvent @event)
-        {
-            // To get the url without hardcoding
-            var queueUrlResponse = await this.sqsClient.GetQueueUrlAsync("customers");
-
-            var sendMessageRequest = new SendMessageRequest
+            QueueUrl = queueUrlResponse.QueueUrl,
+            MessageBody = JsonSerializer.Serialize(@event),
+            MessageAttributes = new Dictionary<string, MessageAttributeValue>
             {
-                QueueUrl = queueUrlResponse.QueueUrl,
-                MessageBody = JsonSerializer.Serialize(@event),
-                MessageAttributes = new Dictionary<string, MessageAttributeValue>
                 {
+                    "MessageType", new MessageAttributeValue
                     {
-                        "MessageType", new MessageAttributeValue
-                        {
-                            DataType = "String",
-                            StringValue = nameof(CustomerCreatedEvent),
-                        }
-                    },
+                        DataType = "String",
+                        StringValue = nameof(CustomerCreatedEvent),
+                    }
                 },
-                DelaySeconds = 3,
-            };
+            },
+            DelaySeconds = 3,
+        };
 
-            var response = await this.sqsClient.SendMessageAsync(sendMessageRequest);
-        }
+        var response = await this.sqsClient.SendMessageAsync(sendMessageRequest);
     }
 }

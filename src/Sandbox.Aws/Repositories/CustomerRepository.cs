@@ -9,16 +9,28 @@ using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.DynamoDBv2.Model;
 using Sandbox.Library.FSharp.Dtos;
 
+/// <summary>
+/// A dummy repository for <see cref="CustomerDto"/> using Dynamo DB.
+/// </summary>
 internal class CustomerRepository
 {
     private const string TableName = "customers";
     private readonly IAmazonDynamoDB dynamoDb;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CustomerRepository"/> class.
+    /// </summary>
+    /// <param name="dynamoDb">The <see cref="AmazonDynamoDBClient"/> instance.</param>
     public CustomerRepository(IAmazonDynamoDB dynamoDb)
     {
         this.dynamoDb = dynamoDb;
     }
 
+    /// <summary>
+    /// Creates a customer in the database.
+    /// </summary>
+    /// <param name="customer">The customer to be created.</param>
+    /// <returns>A flag to indicate success or failed.</returns>
     public async Task<bool> CreateAsync(CustomerDto customer)
     {
         var customerAsJson = JsonSerializer.Serialize(customer);
@@ -36,6 +48,11 @@ internal class CustomerRepository
         return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
 
+    /// <summary>
+    /// Gets a customer by ID.
+    /// </summary>
+    /// <param name="id">The ID of the customer.</param>
+    /// <returns>The customer queried or null.</returns>
     public async Task<CustomerDto?> GetByIdAsync(Guid id)
     {
         var getItemRequest = new GetItemRequest
@@ -62,7 +79,7 @@ internal class CustomerRepository
     /// <summary>
     /// Retrieves the item by scanning the entire cluster. Highly discouraged. Very expensive.
     /// </summary>
-    /// <returns>The retrieved Customers.</returns>
+    /// <returns>The retrieved customers.</returns>
     public async Task<IEnumerable<CustomerDto>> GetAll()
     {
         var scanRequest = new ScanRequest
@@ -80,6 +97,12 @@ internal class CustomerRepository
         });
     }
 
+    /// <summary>
+    /// Updates the information of a customer.
+    /// </summary>
+    /// <param name="customer">The customer to be updated.</param>
+    /// <param name="requestStarted">The time when the request started.</param>
+    /// <returns>A flag to indicate success or failed.</returns>
     public async Task<bool> UpdateAsync(CustomerDto customer, DateTime requestStarted)
     {
         customer.UpdatedAt = DateTime.UtcNow;
@@ -102,6 +125,11 @@ internal class CustomerRepository
         return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
 
+    /// <summary>
+    /// Deletes a customer by ID.
+    /// </summary>
+    /// <param name="id">The ID of the customer to be deleted.</param>
+    /// <returns>A flag to indicate success or failed.</returns>
     public async Task<bool> DeleteAsync(Guid id)
     {
         var deleteItemRequest = new DeleteItemRequest
