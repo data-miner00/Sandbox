@@ -146,4 +146,42 @@ internal class CustomerRepository
 
         return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
     }
+
+    /// <summary>
+    /// Updates 2 different tables with one single request.
+    /// </summary>
+    /// <param name="customer">The customer to be updated.</param>
+    /// <returns>A flag to indicate success or failed.</returns>
+    public async Task<bool> TransactionAsync(CustomerDto customer)
+    {
+        var customerAsJson = JsonSerializer.Serialize(customer);
+        var attributeMap = Document.FromJson(customerAsJson).ToAttributeMap();
+
+        var transactionRequest = new TransactWriteItemsRequest
+        {
+            TransactItems = new List<TransactWriteItem>
+            {
+                new()
+                {
+                    Put = new Put
+                    {
+                        TableName = TableName,
+                        Item = attributeMap,
+                    },
+                },
+                new()
+                {
+                    Put = new Put
+                    {
+                        TableName = "AnotherTable",
+                        Item = attributeMap,
+                    },
+                },
+            },
+        };
+
+        var response = await this.dynamoDb.TransactWriteItemsAsync(transactionRequest);
+
+        return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+    }
 }
