@@ -33,7 +33,11 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Sandbox.IpCheck", "Sandbox.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Azure.ActiveDirectory", "Sandbox.Azure.ActiveDirectory\Sandbox.Azure.ActiveDirectory.csproj", "{ED6257DF-4C59-4D79-BE33-6BB0564952C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Aws", "Sandbox.Aws\Sandbox.Aws.csproj", "{05CE6A0D-5FDD-4F81-8000-968E1A7F7BD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Aws", "Sandbox.Aws\Sandbox.Aws.csproj", "{05CE6A0D-5FDD-4F81-8000-968E1A7F7BD4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Aws.Lambda", "Sandbox.Aws.Lambda\Sandbox.Aws.Lambda.csproj", "{8D4F083D-F555-4630-85A0-30D83670349A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Aws.Lambda.Tests", "Sandbox.Aws.Lambda.Tests\Sandbox.Aws.Lambda.Tests.csproj", "{DA99FB6E-EDBA-4428-976C-22A299AE5324}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +97,14 @@ Global
 		{05CE6A0D-5FDD-4F81-8000-968E1A7F7BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05CE6A0D-5FDD-4F81-8000-968E1A7F7BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05CE6A0D-5FDD-4F81-8000-968E1A7F7BD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D4F083D-F555-4630-85A0-30D83670349A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D4F083D-F555-4630-85A0-30D83670349A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D4F083D-F555-4630-85A0-30D83670349A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D4F083D-F555-4630-85A0-30D83670349A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA99FB6E-EDBA-4428-976C-22A299AE5324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA99FB6E-EDBA-4428-976C-22A299AE5324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA99FB6E-EDBA-4428-976C-22A299AE5324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA99FB6E-EDBA-4428-976C-22A299AE5324}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
