@@ -1,4 +1,5 @@
 ﻿using Amazon;
+using Amazon.SecretsManager;
 using Amazon.SimpleNotificationService;
 using Amazon.SQS;
 
@@ -11,3 +12,6 @@ var sqsClient2 = new AmazonSQSClient(new AmazonSQSConfig
 });
 
 var snsClient = new AmazonSimpleNotificationServiceClient();
+
+var secretsManager = new AmazonSecretsManagerClient();
+
