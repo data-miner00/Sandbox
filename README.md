@@ -9,6 +9,13 @@ Playground project for me to store examples of .NET technologies.
 - [C# Corner](https://www.c-sharpcorner.com/)
 - [AZ-204-DevelopingSolutionsforMicrosoftAzure](https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure)
 - [Azure Lessons](http://azurelessons.com/)
+- [NuGet Gallery](https://www.nuget.org/)
+- [Templates Explorer](https://dotnetnew.azurewebsites.net/)
+
+## AWS
+
+- [AWS](https://aws.amazon.com/)
+- [Lambda](https://aws.amazon.com/lambda/)
 
 ## Tutorials
 
