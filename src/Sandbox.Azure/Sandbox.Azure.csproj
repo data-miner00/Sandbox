@@ -7,15 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Messaging.EventGrid" Version="4.17.0" />
-    <PackageReference Include="Azure.Storage.Blobs" Version="12.16.0" />
+    <PackageReference Include="Azure.Messaging.EventGrid" Version="4.18.0" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.18.0" />
     <PackageReference Include="Flurl" Version="3.0.7" />
-    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.33.0" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.35.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Sandbox.Core\Sandbox.Core.csproj" />
     <ProjectReference Include="..\Sandbox.Library.FSharp\Sandbox.Library.FSharp.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="9.11.0.78383" />
   </ItemGroup>
 
 </Project>
