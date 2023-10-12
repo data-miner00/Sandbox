@@ -39,7 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Aws.Lambda", "Sandb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Aws.Lambda.Tests", "Sandbox.Aws.Lambda.Tests\Sandbox.Aws.Lambda.Tests.csproj", "{DA99FB6E-EDBA-4428-976C-22A299AE5324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Silo", "Sandbox.Silo\Sandbox.Silo.csproj", "{2E35A6E5-43B8-4DC0-B9D7-5D4F0A92B9DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Silo", "Sandbox.Silo\Sandbox.Silo.csproj", "{2E35A6E5-43B8-4DC0-B9D7-5D4F0A92B9DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Newtonsoft", "Sandbox.Newtonsoft\Sandbox.Newtonsoft.csproj", "{722F8F1A-F6BD-4F56-8125-305D52C2A26E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{2E35A6E5-43B8-4DC0-B9D7-5D4F0A92B9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E35A6E5-43B8-4DC0-B9D7-5D4F0A92B9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E35A6E5-43B8-4DC0-B9D7-5D4F0A92B9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{722F8F1A-F6BD-4F56-8125-305D52C2A26E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{722F8F1A-F6BD-4F56-8125-305D52C2A26E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{722F8F1A-F6BD-4F56-8125-305D52C2A26E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{722F8F1A-F6BD-4F56-8125-305D52C2A26E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
