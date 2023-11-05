@@ -23,18 +23,21 @@ namespace Sandbox.WeatherApi.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        [SwaggerResponse((int)HttpStatusCode.OK, "Weather retrieved successfully.")]
-        [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(WeatherForecastExample))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "Successfully retrieved info.")]
+        [SwaggerResponse((int)HttpStatusCode.NotFound, "Info not found.")]
+        [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(WeatherForecastSingleExample))]
+        [ProducesResponseType(typeof(WeatherForecastSingleExample), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Get()
         {
-            await Task.Delay(TimeSpan.FromSeconds(1));
-            return this.Ok(Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray());
+            var result = await Task.FromResult(
+                Enumerable.Range(1, 5).Select((index) => new WeatherForecast
+                {
+                    Date = DateTime.Now.AddDays(index),
+                    TemperatureC = Random.Shared.Next(-20, 55),
+                    Summary = Summaries[Random.Shared.Next(Summaries.Length)],
+                }).ToArray());
+
+            return this.Ok(result);
         }
     }
 }
