@@ -21,9 +21,9 @@
 
             var jobject = JObject.Parse(jsonString);
 
-            var name = (string)jobject["name"];
-            var age = (int)jobject["age"];
-            var city = (string)jobject["city"];
+            var name = (string?)jobject["name"];
+            var age = (int?)jobject["age"];
+            var city = (string?)jobject["city"];
         }
 
         public static void DeserializeIntoJArray()
