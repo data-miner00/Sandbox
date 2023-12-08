@@ -1,6 +1,7 @@
 ﻿namespace Sandbox.Concepts.Bcl
 {
     using System.Collections;
+    using System.Collections.Generic;
 
     /// <summary>
     /// System.Collections examples class.
@@ -104,6 +105,16 @@
             stack.Push("e");
 
             Console.WriteLine($"{stack.Pop()}");
+        }
+
+        public static void HashSetExamples()
+        {
+            HashSet<int> evenNumbers = [];
+
+            for (var i = 0; i < 10; i++)
+            {
+                evenNumbers.Add(i * 2);
+            }
         }
     }
 }

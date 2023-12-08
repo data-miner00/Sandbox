@@ -1,0 +1,12 @@
+﻿| Non-Generic | Generic |
+| --- | --- |
+| ArrayList | List<T> |
+| HashTable | Dictionary<TKey, TValue> |
+| | ConcurrentDictionary<TKey, TValue> |
+| CollectionBase | Collection<T> |
+| Queue | Queue<T> |
+| ConcurrentQueue | ConcurrentQueue<T> |
+| ImmutableQueue | ImmutableQueue<T> |
+| ImmutableArray | ImmutableArray<T> |
+| SortedList | SortedList<TKey, TValue> |
+| ImmutableSortedSet | ImmutableSortedSet<T> |
