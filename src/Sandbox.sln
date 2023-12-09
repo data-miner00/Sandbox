@@ -53,6 +53,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Blazor.Server", "Sa
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Sandbox.Node", "Sandbox.Node\Sandbox.Node.esproj", "{13EFCFC9-5F93-4DF4-B345-8B6F86AEB0E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.MSSQL", "Sandbox.MSSQL\Sandbox.MSSQL.csproj", "{6CEB80A9-2C2B-4B65-AC17-501161460440}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -151,6 +153,10 @@ Global
 		{13EFCFC9-5F93-4DF4-B345-8B6F86AEB0E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13EFCFC9-5F93-4DF4-B345-8B6F86AEB0E1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13EFCFC9-5F93-4DF4-B345-8B6F86AEB0E1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6CEB80A9-2C2B-4B65-AC17-501161460440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CEB80A9-2C2B-4B65-AC17-501161460440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CEB80A9-2C2B-4B65-AC17-501161460440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CEB80A9-2C2B-4B65-AC17-501161460440}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
