@@ -3,7 +3,7 @@
     using System.Diagnostics;
     using System.Text.RegularExpressions;
 
-    internal class RegularExpression
+    internal static class RegularExpression
     {
         public static void SimpleMatching()
         {
@@ -76,5 +76,40 @@
                 Console.WriteLine(match.Value);
             }
         }
+
+        #region Newly Added
+        public static void FindRepeatedWordsInString()
+        {
+            var regex = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            var text = "The the quick   brown fox   fox jump over  the lazy lazy dog dog dog";
+
+            var matches = regex.Matches(text);
+
+            Console.WriteLine("{0} matches found in:\n  {1}", matches.Count, text);
+        }
+
+        public static async Task ExtractUrlsInWikipedia()
+        {
+            var wiki = "https://en.wikipedia.org/wiki/Linux";
+            using var httpClient = new HttpClient();
+            var webPageBytes = await httpClient.GetByteArrayAsync(wiki);
+            using var filestream = new FileStream("linux.html", FileMode.Create);
+            filestream.Write(webPageBytes, 0, webPageBytes.Length);
+            filestream.Dispose();
+
+            var readText = File.ReadAllText("linux.html");
+            var pattern = "<a href=\"(.*)\" title=\"(.*)\">(.*)<\\/a>";
+
+            var matches = Regex.Matches(readText, pattern);
+            foreach (var match in matches.Cast<Match>())
+            {
+                var groups = match.Groups;
+                Console.WriteLine($"Full match: {groups[0]}");
+                Console.WriteLine($"Url: {groups[1]}, Title: {groups[2]}, InnerHtml: {groups[3]}");
+            }
+
+            Console.WriteLine("Found {0} urls.", matches.Count);
+        }
+        #endregion
     }
 }
