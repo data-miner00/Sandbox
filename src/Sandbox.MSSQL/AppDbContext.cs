@@ -6,11 +6,11 @@
     {
         private const string ConnectionString = @"Server=DESKTOP-KL3VEUU;Database=Testing;Trusted_Connection=True;TrustServerCertificate=True;";
 
+        public DbSet<Employee> Employees { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConnectionString);
         }
-
-        public DbSet<Employee> Employees { get; set; }
     }
 }

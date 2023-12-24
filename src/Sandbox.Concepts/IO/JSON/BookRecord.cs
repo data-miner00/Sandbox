@@ -20,3 +20,12 @@ public record BookRecord(
     [property: JsonPropertyName("isbn")] string ISBN,
     [property: JsonPropertyName("publication_date")] DateTime PublicationDate,
     [property: JsonPropertyName("tags")] IList<string> Tags);
+
+internal static class Showcase
+{
+    public static void Replace()
+    {
+        var book = new BookRecord("title", 10m, "horrot", "abc", DateTime.Now, Array.Empty<string>());
+        var newBook = book with { Genre = "action" };
+    }
+}
