@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">WTFPL</license>
+    <icon>favicon.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/data-miner00/Sandbox</projectUrl>
+    <description>$description$</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>netframework experiment ignore</tags>
+  </metadata>
+  <files>
+    <file src="favicon.png" target="" />
+    <file src="README.md" target="" />
+  </files>
+</package>
