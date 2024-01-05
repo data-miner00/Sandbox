@@ -1,37 +1,36 @@
-﻿namespace Sandbox.SQLite
+﻿namespace Sandbox.SQLite;
+
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SQLite;
+using System.Linq;
+using Dapper;
+using Sandbox.Library.VB;
+
+public static class SQLiteDataAccess
 {
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Data;
-    using System.Data.SQLite;
-    using System.Linq;
-    using Dapper;
-    using Sandbox.Library.VB;
-
-    public class SQLiteDataAccess
+    public static List<Person> LoadPeople()
     {
-        public static List<Person> LoadPeople()
+        using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
         {
-            using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
-            {
-                var output = conn.Query<Person>("SELECT * FROM Person;", new DynamicParameters());
-                return output.ToList();
-            }
+            var output = conn.Query<Person>("SELECT * FROM Person;", new DynamicParameters());
+            return output.ToList();
         }
+    }
 
-        public static void SavePerson(Person person)
+    public static void SavePerson(Person person)
+    {
+        using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
         {
-            using (IDbConnection conn = new SQLiteConnection(LoadConnectionString()))
-            {
-                var parameter = new DynamicParameters();
+            var parameter = new DynamicParameters();
 
-                conn.Execute("INSERT INTO Person (FirstName, LastName) values (@FirstName, @LastName)", person);
-            }
+            conn.Execute("INSERT INTO Person (FirstName, LastName) values (@FirstName, @LastName)", person);
         }
+    }
 
-        private static string LoadConnectionString(string id = "Default")
-        {
-            return ConfigurationManager.ConnectionStrings[id].ConnectionString;
-        }
+    private static string LoadConnectionString(string id = "Default")
+    {
+        return ConfigurationManager.ConnectionStrings[id].ConnectionString;
     }
 }
