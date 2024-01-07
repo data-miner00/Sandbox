@@ -55,9 +55,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.MSSQL", "Sandbox.MS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Winform", "Sandbox.Winform\Sandbox.Winform.csproj", "{DC86366A-4B23-429F-9936-AF4C27ECE6CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Nuget.NetCore", "Sandbox.Nuget.NetCore\Sandbox.Nuget.NetCore.csproj", "{1B7C035F-AAE7-45B8-B619-CA462DB1DD20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Nuget.NetCore", "Sandbox.Nuget.NetCore\Sandbox.Nuget.NetCore.csproj", "{1B7C035F-AAE7-45B8-B619-CA462DB1DD20}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Nuget.NetFramework", "Sandbox.Nuget.NetFramework\Sandbox.Nuget.NetFramework.csproj", "{666AD1EE-BB96-46FA-BD05-444994670C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Benchmarking", "Sandbox.Benchmarking\Sandbox.Benchmarking.csproj", "{9F80EE50-A183-4D39-9566-7D630133935E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -167,6 +169,10 @@ Global
 		{666AD1EE-BB96-46FA-BD05-444994670C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{666AD1EE-BB96-46FA-BD05-444994670C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{666AD1EE-BB96-46FA-BD05-444994670C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F80EE50-A183-4D39-9566-7D630133935E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F80EE50-A183-4D39-9566-7D630133935E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F80EE50-A183-4D39-9566-7D630133935E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F80EE50-A183-4D39-9566-7D630133935E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
