@@ -11,6 +11,7 @@ Playground project for me to store examples of .NET technologies.
 - [Azure Lessons](http://azurelessons.com/)
 - [NuGet Gallery](https://www.nuget.org/)
 - [Templates Explorer](https://dotnetnew.azurewebsites.net/)
+- [.NET 6 BCL Fundamentals](https://app.pluralsight.com/library/courses/dot-net-6-bcl-fundamentals/table-of-contents)
 
 ## AWS
 
@@ -20,4 +21,8 @@ Playground project for me to store examples of .NET technologies.
 ## Tutorials
 
 - [C# Marshalling](https://www.youtube.com/watch?v=V_fzzhPmhhM)
+
+## Tools
+
+- [SharpLab Compiler](https://sharplab.io/)
 

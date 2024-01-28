@@ -1,0 +1,69 @@
+﻿// * Summary *
+
+BenchmarkDotNet v0.13.12, Windows 10 (10.0.19045.3930/22H2/2022Update)
+11th Gen Intel Core i9-11900 2.50GHz, 1 CPU, 16 logical and 8 physical cores
+.NET SDK 8.0.101
+  [Host]     : .NET 8.0.1 (8.0.123.58001), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+  DefaultJob : .NET 8.0.1 (8.0.123.58001), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+
+
+| Method                | Size    | Mean          | Error        | StdDev       | Median        | Gen0   | Allocated |
+|---------------------- |-------- |--------------:|-------------:|-------------:|--------------:|-------:|----------:|
+| For                   | 100     |      41.48 ns |     0.831 ns |     1.218 ns |      41.28 ns |      - |         - |
+| Foreach               | 100     |      39.21 ns |     0.349 ns |     0.326 ns |      39.25 ns |      - |         - |
+| Foreach_Linq          | 100     |      68.67 ns |     0.348 ns |     0.308 ns |      68.60 ns |      - |         - |
+| Parallel_Foreach      | 100     |   3,687.78 ns |    71.839 ns |    73.774 ns |   3,685.94 ns | 0.3891 |    3237 B |
+| Parallel_Foreach_Linq | 100     |   4,719.54 ns |    84.242 ns |    78.800 ns |   4,704.72 ns | 0.7858 |    6584 B |
+| For_Span              | 100     |      27.38 ns |     0.280 ns |     0.262 ns |      27.41 ns |      - |         - |
+| Foreach_Span          | 100     |      26.83 ns |     0.375 ns |     0.351 ns |      26.87 ns |      - |         - |
+| For                   | 100000  |  30,457.17 ns |   443.446 ns |   393.104 ns |  30,294.49 ns |      - |         - |
+| Foreach               | 100000  |  30,291.51 ns |    82.603 ns |    77.267 ns |  30,288.06 ns |      - |         - |
+| Foreach_Linq          | 100000  |  61,351.10 ns |   284.401 ns |   222.042 ns |  61,370.36 ns |      - |         - |
+| Parallel_Foreach      | 100000  |  40,961.22 ns |   439.163 ns |   342.870 ns |  40,843.49 ns | 0.5493 |    4841 B |
+| Parallel_Foreach_Linq | 100000  |  49,708.30 ns |   504.743 ns |   447.441 ns |  49,518.27 ns | 0.7935 |    6648 B |
+| For_Span              | 100000  |  20,125.05 ns |    66.925 ns |    55.885 ns |  20,096.07 ns |      - |         - |
+| Foreach_Span          | 100000  |  19,804.26 ns |   360.993 ns |   337.674 ns |  20,073.69 ns |      - |         - |
+| For                   | 1000000 | 303,640.71 ns | 3,941.420 ns | 3,686.807 ns | 302,539.26 ns |      - |         - |
+| Foreach               | 1000000 | 303,028.65 ns |   936.479 ns |   782.002 ns | 303,068.60 ns |      - |         - |
+| Foreach_Linq          | 1000000 | 620,887.30 ns | 4,892.983 ns | 4,337.502 ns | 619,707.23 ns |      - |         - |
+| Parallel_Foreach      | 1000000 | 288,842.26 ns | 1,167.180 ns |   911.258 ns | 289,009.89 ns | 0.4883 |    4870 B |
+| Parallel_Foreach_Linq | 1000000 | 267,708.19 ns | 5,107.197 ns | 9,716.973 ns | 263,063.67 ns | 0.4883 |    6648 B |
+| For_Span              | 1000000 | 201,015.83 ns |   482.423 ns |   427.655 ns | 200,828.77 ns |      - |         - |
+| Foreach_Span          | 1000000 | 199,773.94 ns | 2,891.828 ns | 2,414.808 ns | 200,744.46 ns |      - |         - |
+
+// * Hints *
+Outliers
+  IterateList.For: Default                   -> 1 outlier  was  detected (38.00 ns)
+  IterateList.Foreach_Linq: Default          -> 1 outlier  was  removed (72.01 ns)
+  IterateList.Parallel_Foreach: Default      -> 1 outlier  was  detected (3.50 us)
+  IterateList.For: Default                   -> 1 outlier  was  removed (32.12 us)
+  IterateList.Foreach_Linq: Default          -> 3 outliers were removed (62.22 us..63.10 us)
+  IterateList.Parallel_Foreach: Default      -> 3 outliers were removed (43.11 us..43.70 us)
+  IterateList.Parallel_Foreach_Linq: Default -> 1 outlier  was  removed (51.61 us)
+  IterateList.For_Span: Default              -> 2 outliers were removed (20.43 us, 20.51 us)
+  IterateList.Foreach: Default               -> 2 outliers were removed (306.39 us, 308.08 us)
+  IterateList.Foreach_Linq: Default          -> 1 outlier  was  removed (635.98 us)
+  IterateList.Parallel_Foreach: Default      -> 3 outliers were removed (292.29 us..310.37 us)
+  IterateList.Parallel_Foreach_Linq: Default -> 4 outliers were removed (302.16 us..326.68 us)
+  IterateList.For_Span: Default              -> 1 outlier  was  removed (204.84 us)
+  IterateList.Foreach_Span: Default          -> 2 outliers were removed, 4 outliers were detected (194.33 us, 194.35 us, 201.09 us, 202.19 us)
+
+// * Legends *
+  Size      : Value of the 'Size' parameter
+  Mean      : Arithmetic mean of all measurements
+  Error     : Half of 99.9% confidence interval
+  StdDev    : Standard deviation of all measurements
+  Median    : Value separating the higher half of all measurements (50th percentile)
+  Gen0      : GC Generation 0 collects per 1000 operations
+  Allocated : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+  1 ns      : 1 Nanosecond (0.000000001 sec)
+
+// * Diagnostic Output - MemoryDiagnoser *
+
+
+// ***** BenchmarkRunner: End *****
+Run time: 00:07:11 (431.68 sec), executed benchmarks: 21
+
+Global total time: 00:07:29 (449.53 sec), executed benchmarks: 21
+// * Artifacts cleanup *
+Artifacts cleanup is finished
