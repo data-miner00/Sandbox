@@ -73,6 +73,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{F8EF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{BBEC38E5-A406-42E9-BBDE-55C4D704A0EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Interop", "Sandbox.Interop\Sandbox.Interop.csproj", "{98B6ECF6-2266-460F-96DC-E1614F6C8A8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -185,6 +187,10 @@ Global
 		{9F80EE50-A183-4D39-9566-7D630133935E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F80EE50-A183-4D39-9566-7D630133935E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F80EE50-A183-4D39-9566-7D630133935E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98B6ECF6-2266-460F-96DC-E1614F6C8A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98B6ECF6-2266-460F-96DC-E1614F6C8A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98B6ECF6-2266-460F-96DC-E1614F6C8A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98B6ECF6-2266-460F-96DC-E1614F6C8A8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
