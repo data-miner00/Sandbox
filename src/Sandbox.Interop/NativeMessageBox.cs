@@ -17,6 +17,9 @@ internal static class NativeMessageBox
         _ = MessageBox((nint)0, message, title, 0);
     }
 
+    /// <summary>
+    /// Refer to <see href="https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messagebox">docs</see>.
+    /// </summary>
     [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
     private static extern int MessageBox(nint hwnd, string message, string title, int flag); // nint is equivalent to IntPtr struct
 }
