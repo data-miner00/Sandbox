@@ -3,6 +3,7 @@ namespace Sandbox.WeatherApi.Controllers
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
     using Sandbox.WeatherApi.Examples;
+    using Sandbox.WeatherApi.Filters;
     using Swashbuckle.AspNetCore.Annotations;
     using Swashbuckle.AspNetCore.Filters;
 
@@ -38,6 +39,14 @@ namespace Sandbox.WeatherApi.Controllers
                 }).ToArray());
 
             return this.Ok(result);
+        }
+
+        [HttpGet(Name = "Random")]
+        [ScopedFilter("hello world")]
+        [ScopedAsyncFilter]
+        public Task<IActionResult> GetRandom()
+        {
+            return Task.FromResult(this.Ok(20) as IActionResult);
         }
     }
 }

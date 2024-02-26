@@ -1,13 +1,15 @@
-
-
-using Swashbuckle.AspNetCore.Filters;
 using System.Reflection;
+using Sandbox.WeatherApi.Filters;
+using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddControllers(config =>
+{
+    // The very first filter that a request reach
+    config.Filters.Add(new GlobalFilter());
+});
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
