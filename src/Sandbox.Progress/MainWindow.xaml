@@ -1,0 +1,16 @@
+﻿<Window x:Class="Sandbox.Progress.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sandbox.Progress"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btnLoop" Content="Loop Through Numbers" HorizontalAlignment="Center" Margin="0,89,0,0" VerticalAlignment="Top" Height="75" Width="230" FontSize="16" Click="btnLoop_Click"/>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Center" Height="47" Margin="0,217,0,0" VerticalAlignment="Top" Width="440"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Center" Margin="0,350,0,0" VerticalAlignment="Top" FontSize="16" Height="49" Width="140" Click="btnCancel_Click"/>
+        <Label x:Name="lblProgress" Content="0%" HorizontalAlignment="Center" Margin="0,293,0,0" VerticalAlignment="Top" FontSize="16"/>
+
+    </Grid>
+</Window>
