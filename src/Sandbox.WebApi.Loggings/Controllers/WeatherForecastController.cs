@@ -59,9 +59,9 @@ public class WeatherForecastController : ControllerBase
         {
             var referenceId = this.HttpContext.TraceIdentifier;
 
-            this._logger.Error("[ERROR] <{referenceId}> {message}\n{stacktrace}", referenceId, ex.Message, ex.StackTrace);
+            this._logger.Error("{referenceId} - {message}\n{stacktrace}", referenceId, ex.Message, ex.StackTrace);
 
-            return this.BadRequest(new ErrorResponse
+            return this.StatusCode(500, new ErrorResponse
             {
                 Message = "Something went wrong.",
                 StatusCode = (int)HttpStatusCode.InternalServerError,
