@@ -32,7 +32,7 @@
         {
             // rollinglogfile-20140520.log
             var logger = new LoggerConfiguration()
-                .WriteTo.RollingFile("rollinglogfile.log", retainedFileCountLimit: 2) // Only 2 concurrent log file can exist.
+                .WriteTo.File("rollinglogfile.log", retainedFileCountLimit: 2) // Only 2 concurrent log file can exist.
                 .CreateLogger();
 
             logger.Information("Hello world");
