@@ -1,0 +1,18 @@
+﻿{
+  "$type": "Not important",
+  "Property1": "value1",
+  "Property2": 532,
+  "Property3": null,
+  "Property4": {
+    "$type": "Not important",
+    "$value": [
+      "valuea",
+      "vaueb"
+    ]
+  },
+  "Property5": {
+    "$type": "Not important",
+    "InnerProperty1": "hello",
+    "InnerProperty2": 34
+  }
+}
