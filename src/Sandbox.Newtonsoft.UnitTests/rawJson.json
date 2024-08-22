@@ -1,0 +1,12 @@
+﻿{
+  "Property1": 1,
+  "Property2": "New Property",
+  "NestedProperty": {
+    "Nested1": null,
+    "Nested2": 53
+  },
+  "Arrays": [
+    "String1",
+    "String2"
+  ]
+}
