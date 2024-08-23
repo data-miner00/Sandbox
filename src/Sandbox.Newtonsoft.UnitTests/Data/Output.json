@@ -1,0 +1,21 @@
+﻿{
+  "Property1": "proprty",
+  "NestedProperty": {
+    "NestedProper2": null,
+    "Nested3": {
+      "Array": [
+        {
+          "Main": "void"
+        },
+        {
+          "Random": false,
+          "True": true
+        }
+      ]
+    }
+  },
+  "HiddenArray": [
+    "Important values",
+    "Yes important"
+  ]
+}

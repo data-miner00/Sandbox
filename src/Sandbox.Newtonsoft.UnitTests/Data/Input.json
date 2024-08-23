@@ -1,0 +1,29 @@
+﻿{
+  "$type": "not important",
+  "Property1": "proprty",
+  "NestedProperty": {
+    "$type": "my type",
+    "NestedProper2": null,
+    "Nested3": {
+      "$type": "Type again",
+      "Array": [
+        {
+          "$type": "Type!",
+          "Main": "void"
+        },
+        {
+          "$type": "Type2!",
+          "Random": false,
+          "True": true
+        }
+      ]
+    }
+  },
+  "HiddenArray": {
+    "$type": "blah",
+    "$value": [
+      "Important values",
+      "Yes important"
+    ]
+  }
+}

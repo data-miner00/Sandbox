@@ -13,6 +13,9 @@ public static class JsonProcessor
             {
                 // Replace the entire object with the value of $value
                 var value = obj["$value"];
+
+                ProcessJToken(value);
+
                 obj.Replace(value);
             }
             else
@@ -33,6 +36,25 @@ public static class JsonProcessor
             {
                 ProcessJToken(array[i]);
             }
+        }
+    }
+
+    public static void ProcessJTokenWithJsonPath(JToken token)
+    {
+        var listOfTypes = token.SelectTokens("..$type")
+            .ToList();
+
+        foreach (var type in listOfTypes)
+        {
+            type.Parent?.Remove();
+        }
+
+        var listOfValues = token.SelectTokens("..$value")
+            .ToList();
+
+        foreach (var value in listOfValues)
+        {
+            value.Parent?.Parent?.Replace(value);
         }
     }
 
