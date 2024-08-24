@@ -1,6 +1,8 @@
 ﻿namespace Sandbox.ConsoleApp
 {
     using System;
+    using Sandbox.Concepts.Bcl.Threading;
+    using Sandbox.Nuget.NetCore;
 
     /// <summary>
     /// A sandbox class to play around and experiment with.
@@ -13,8 +15,18 @@
         /// <param name="args">The command line arguments.</param>
         public static void Main(string[] args)
         {
-            Console.Out.WriteLine("Edit the method with features to play around");
-            Console.Out.WriteLine("This project will be excluded from version control");
+            //SendingEmail.SendEmail("ben@contoso.com", "noreply@contoso.com");
+            Monitors.Example();
+            Console.WriteLine(Sample.Greetings);
+            var bo = Role.Administrator < Role.Moderator;
         }
+    }
+
+    enum Role
+    {
+        Administrator,
+        Moderator,
+        User,
+        Guest,
     }
 }

@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="sandbox.nuget.netcorew" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Sandbox.Concepts\Sandbox.Concepts.csproj" />
     <ProjectReference Include="..\Sandbox.Core\Sandbox.Core.csproj" />
     <ProjectReference Include="..\Sandbox.Library.FSharp\Sandbox.Library.FSharp.fsproj" />
