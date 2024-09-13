@@ -7,14 +7,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO.Hashing;
 
-public class Algra
+public static class Algra
 {
     public static void Demo()
     {
-        var crc32 = new Crc32();
+        var checksum = Crc32.Hash(Encoding.UTF8.GetBytes("Hello world"));
 
-        crc32.Append(Encoding.ASCII.GetBytes("Hello world"));
+        Console.WriteLine(Convert.ToBase64String(checksum));
+        Console.WriteLine(BitConverter.ToString(checksum));
+        Console.WriteLine(Encoding.UTF8.GetString(checksum));
+        Console.WriteLine(BytesToStringConverted(checksum));
+    }
 
-        Console.WriteLine(crc32.GetCurrentHash());
+    static string BytesToStringConverted(byte[] bytes)
+    {
+        using (var stream = new MemoryStream(bytes))
+        {
+            using (var streamReader = new StreamReader(stream))
+            {
+                return streamReader.ReadToEnd();
+            }
+        }
     }
 }
