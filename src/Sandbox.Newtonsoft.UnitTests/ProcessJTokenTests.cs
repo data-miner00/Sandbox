@@ -37,4 +37,20 @@ public sealed class ProcessJTokenTests
 
         actual.Should().BeEquivalentTo(expected);
     }
+
+    [Fact]
+    public void ProcessJTokenWithJsonPathInPlace_GivenInput_ExpectedOutput()
+    {
+        var inputJson = File.ReadAllText("Data/Input.json");
+        var outputJson = File.ReadAllText("Data/Output.json");
+
+        var parsedInput = JToken.Parse(inputJson);
+
+        JsonProcessor.ProcessJTokenWithJsonPathInplace(parsedInput);
+
+        var actual = parsedInput.ToObject<object>();
+        var expected = JsonConvert.DeserializeObject(outputJson);
+
+        actual.Should().BeEquivalentTo(expected);
+    }
 }

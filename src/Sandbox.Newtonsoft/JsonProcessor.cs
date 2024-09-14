@@ -58,6 +58,26 @@ public static class JsonProcessor
         }
     }
 
+    // If we don't want to use .ToList or .ToArray, we can remove the node inplace by sorting either by ascending or descending.
+    public static void ProcessJTokenWithJsonPathInplace(JToken token)
+    {
+        var listOfTypes = token.SelectTokens("..$type")
+            .OrderBy(token => token.Path.Count(character => character == '.'));
+
+        foreach (var type in listOfTypes)
+        {
+            type.Parent?.Remove();
+        }
+
+        var listOfValues = token.SelectTokens("..$value")
+            .OrderBy(token => token.Path.Count(character => character == '.'));
+
+        foreach (var value in listOfValues)
+        {
+            value.Parent?.Parent?.Replace(value);
+        }
+    }
+
     public static string ProcessJson(string json)
     {
         var jsonObject = JToken.Parse(json);
