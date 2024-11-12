@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-namespace Sandbox.Benchmarking;
+﻿namespace Sandbox.Benchmarking;
 
 using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
@@ -14,13 +13,13 @@ public class Md5VsSha256
 
     public Md5VsSha256()
     {
-        data = new byte[N];
-        new Random(42).NextBytes(data);
+        this.data = new byte[N];
+        new Random(42).NextBytes(this.data);
     }
 
     [Benchmark]
-    public byte[] Sha256() => sha256.ComputeHash(data);
+    public byte[] Sha256() => this.sha256.ComputeHash(this.data);
 
     [Benchmark]
-    public byte[] Md5() => md5.ComputeHash(data);
+    public byte[] Md5() => this.md5.ComputeHash(this.data);
 }

@@ -11,8 +11,10 @@ public static class Algra
 {
     public static void Demo()
     {
-        var checksum = Crc32.Hash(Encoding.UTF8.GetBytes("Hello world"));
+        var checksum = Crc32.Hash(Encoding.UTF8.GetBytes("hello world"));
 
+        Console.WriteLine(BitConverter.ToInt32(checksum));
+        Console.WriteLine(Convert.ToString(BitConverter.ToInt32(checksum, 0), 2));
         Console.WriteLine(Convert.ToBase64String(checksum));
         Console.WriteLine(BitConverter.ToString(checksum));
         Console.WriteLine(Encoding.UTF8.GetString(checksum));
