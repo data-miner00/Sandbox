@@ -81,6 +81,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox.Newtonsoft.UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Silo.UnitTests", "Sandbox.Silo.UnitTests\Sandbox.Silo.UnitTests.csproj", "{CD5DF40E-B1BE-4310-B463-166492E4A606}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Images", "Sandbox.Images\Sandbox.Images.csproj", "{23BD2E04-4B01-457E-8FD6-5D753D4A4DE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -209,6 +211,10 @@ Global
 		{CD5DF40E-B1BE-4310-B463-166492E4A606}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD5DF40E-B1BE-4310-B463-166492E4A606}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD5DF40E-B1BE-4310-B463-166492E4A606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23BD2E04-4B01-457E-8FD6-5D753D4A4DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23BD2E04-4B01-457E-8FD6-5D753D4A4DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23BD2E04-4B01-457E-8FD6-5D753D4A4DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23BD2E04-4B01-457E-8FD6-5D753D4A4DE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
