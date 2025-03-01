@@ -1,6 +1,9 @@
 using System.Reflection;
 using Sandbox.WeatherApi.Filters;
 using Swashbuckle.AspNetCore.Filters;
+using dotenv.net;
+
+DotEnv.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +21,11 @@ builder.Services.AddSwaggerGen(c =>
     c.ExampleFilters();
 });
 
+var b = builder.Configuration.GetSection("CABAL_DIR").Value;
+var a = builder.Configuration.GetSection("SHAUN").Value;
+var c = builder.Configuration.GetSection("BEN").Value;
+
+Console.WriteLine(b);
 builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
 
 var app = builder.Build();

@@ -25,10 +25,7 @@ internal static class ObjectDetection
         Cv2.Canny(blur, canny, 15, 120);
         Cv2.Dilate(canny, canny, new Mat(), null, 3);
 
-        OpenCvSharp.Point[][] contours;
-        HierarchyIndex[] hierarchyIndices;
-
-        Cv2.FindContours(canny, out contours, out hierarchyIndices, mode: RetrievalModes.External, method: ContourApproximationModes.ApproxSimple);
+        Cv2.FindContours(canny, out var contours, hierarchy: out var hierarchyIndices, mode: RetrievalModes.External, method: ContourApproximationModes.ApproxSimple);
 
         foreach (var contour in contours)
         {
