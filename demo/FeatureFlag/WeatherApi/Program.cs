@@ -13,8 +13,10 @@ namespace WeatherApi
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+            builder.Services.AddHttpContextAccessor();
 
-            builder.Services.AddFeatureManagement();
+            builder.Services.AddFeatureManagement()
+                .WithTargeting<FeatureTargetingContext>();
 
             var app = builder.Build();
 
