@@ -24,6 +24,10 @@ namespace WeatherApi
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
+                app.UseSwaggerUI(opt =>
+                {
+                    opt.SwaggerEndpoint("/openapi/v1.json", "Weather API V1");
+                });
             }
 
             app.UseHttpsRedirection();
