@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sandbox.Library.VB\Sandbox.Library.VB.vbproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="person.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
