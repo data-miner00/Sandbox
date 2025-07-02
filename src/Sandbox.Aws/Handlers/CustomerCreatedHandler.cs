@@ -2,7 +2,7 @@
 
 using System.Threading.Tasks;
 using MediatR;
-using Sandbox.Core.Events;
+using Sandbox.Aws.Events;
 using Serilog;
 
 /// <summary>

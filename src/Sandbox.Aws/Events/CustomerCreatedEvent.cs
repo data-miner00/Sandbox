@@ -1,8 +1,8 @@
-﻿namespace Sandbox.Core.Events
+﻿namespace Sandbox.Aws.Events
 {
     using System;
 
-    public class CustomerUpdatedEvent : ISqsMessage
+    public class CustomerCreatedEvent : ISqsMessage
     {
         public Guid Id { get; set; }
 

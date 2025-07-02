@@ -1,4 +1,4 @@
-﻿namespace Sandbox.Core.Events
+﻿namespace Sandbox.Aws.Events
 {
     using MediatR;
 

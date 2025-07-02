@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.DynamoDBv2.Model;
-using Sandbox.Library.FSharp.Dtos;
 
 /// <summary>
 /// A dummy repository for <see cref="CustomerDto"/> using Dynamo DB.

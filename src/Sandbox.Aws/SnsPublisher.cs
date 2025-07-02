@@ -5,7 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Amazon.SimpleNotificationService;
 using Amazon.SimpleNotificationService.Model;
-using Sandbox.Core.Events;
+using Sandbox.Aws.Events;
 
 /// <summary>
 /// The publisher class to Amazon Simple Notification Service.

@@ -5,7 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Amazon.SQS;
 using Amazon.SQS.Model;
-using Sandbox.Core.Events;
+using Sandbox.Aws.Events;
 
 /// <summary>
 /// The event publisher to the Simple Queue System.

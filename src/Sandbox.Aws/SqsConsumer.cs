@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Amazon.SQS;
 using Amazon.SQS.Model;
-using Sandbox.Core.Events;
+using Sandbox.Aws.Events;
 
 /// <summary>
 /// The consumer for the Simple Queue System events.

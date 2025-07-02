@@ -8,7 +8,7 @@ using Amazon.SQS;
 using Amazon.SQS.Model;
 using MediatR;
 using Microsoft.Extensions.Hosting;
-using Sandbox.Core.Events;
+using Sandbox.Aws.Events;
 using Serilog;
 
 /// <summary>
@@ -45,7 +45,7 @@ internal class QueueConsumerService : BackgroundService
         var receiveMessageRequest = new ReceiveMessageRequest
         {
             QueueUrl = queueUrlResponse.QueueUrl,
-            MaxNumberOfMessages = 1,
+            MaxNumberOfMessages = 10,
         };
 
         while (!stoppingToken.IsCancellationRequested)
