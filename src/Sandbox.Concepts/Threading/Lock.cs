@@ -1,9 +1,8 @@
 ﻿namespace Sandbox.Concepts.Threading
 {
     using System;
-    using Sandbox.Core;
 
-    internal class Lock : IDemo
+    internal class Lock
     {
         public void TestLock()
         {

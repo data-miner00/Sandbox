@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
+    using System.Runtime.InteropServices;
     using System.Text.Json;
     using System.Threading.Tasks;
     using Microsoft.Azure.Cosmos;
@@ -168,6 +169,7 @@
         }
     }
 
+    [StructLayout(LayoutKind.Sequential)]
     file struct Customer
     {
         public string FirstName { get; set; }

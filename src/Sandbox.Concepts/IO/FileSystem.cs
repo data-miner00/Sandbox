@@ -1,9 +1,8 @@
 ﻿namespace Sandbox.Concepts.IO
 {
     using System;
-    using Sandbox.Core;
 
-    internal class FileSystem : IDemo
+    internal class FileSystem
     {
         public void Demo()
         {

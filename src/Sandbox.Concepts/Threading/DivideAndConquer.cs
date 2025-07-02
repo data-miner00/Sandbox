@@ -2,9 +2,8 @@
 {
     using System;
     using System.Diagnostics;
-    using Sandbox.Core;
 
-    internal class DivideAndConquer : IDemo
+    internal class DivideAndConquer
     {
         public void Demo()
         {

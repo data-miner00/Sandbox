@@ -2,10 +2,9 @@
 {
     using System;
     using System.Threading.Tasks;
-    using Sandbox.Core;
     using Mon = System.Threading.Monitor;
 
-    internal class Monitor : IDemo
+    internal class Monitor
     {
         public void Demo()
         {

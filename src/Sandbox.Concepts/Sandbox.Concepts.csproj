@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sandbox.Core\Sandbox.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Update="SonarAnalyzer.CSharp" Version="9.11.0.78383" />
   </ItemGroup>
 
