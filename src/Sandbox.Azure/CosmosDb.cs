@@ -8,13 +8,11 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Cosmos;
     using Microsoft.Azure.Cosmos.Linq;
-    using Sandbox.Core.Options;
-    using Sandbox.Library.FSharp;
 
     /// <summary>
     /// The class for documenting the usage for <see cref="CosmosClient"/>.
     /// </summary>
-    public sealed class CosmosDb
+    file sealed class CosmosDb
     {
         private readonly Container container;
         private readonly CosmosOption option;
@@ -168,5 +166,14 @@
 
             return matches;
         }
+    }
+
+    file struct Customer
+    {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public int Age { get; set; }
     }
 }

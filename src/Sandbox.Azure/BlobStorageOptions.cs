@@ -1,4 +1,4 @@
-﻿namespace Sandbox.Core.Options
+﻿namespace Sandbox.Azure
 {
     using System.ComponentModel.DataAnnotations;
 

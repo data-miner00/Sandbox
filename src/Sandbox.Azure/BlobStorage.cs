@@ -8,7 +8,6 @@
     using global::Azure.Storage;
     using global::Azure.Storage.Blobs;
     using global::Azure.Storage.Blobs.Models;
-    using Sandbox.Core.Options;
 
     /// <summary>
     /// A class for documenting the Azure Blob Storage SDK.
