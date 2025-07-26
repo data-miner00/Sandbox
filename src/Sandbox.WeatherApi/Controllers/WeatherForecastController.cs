@@ -4,6 +4,8 @@ namespace Sandbox.WeatherApi.Controllers
 
     using Microsoft.AspNetCore.Mvc;
 
+    using Polly.Registry;
+
     using Sandbox.WeatherApi.Examples;
     using Sandbox.WeatherApi.Filters;
     using Sandbox.WeatherApi.Models;
@@ -21,10 +23,14 @@ namespace Sandbox.WeatherApi.Controllers
         ];
 
         private readonly ILogger<WeatherForecastController> logger;
+        private readonly ResiliencePipelineProvider<string> pipelineProvider;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(
+            ILogger<WeatherForecastController> logger,
+            ResiliencePipelineProvider<string> pipelineProvider)
         {
             this.logger = logger;
+            this.pipelineProvider = pipelineProvider;
             logger.LogInformation("Hello world");
         }
 
@@ -35,13 +41,27 @@ namespace Sandbox.WeatherApi.Controllers
         [ProducesResponseType(typeof(WeatherForecastSingleExample), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> Get()
         {
-            var result = await Task.FromResult(
+            var pipeline = this.pipelineProvider.GetPipeline("default");
+
+            var result = await pipeline.ExecuteAsync(async (cancellationToken) =>
+            {
+                var randomInt = Random.Shared.Next(1, 100);
+
+                if (randomInt < 50)
+                {
+                    // Simulate a failure
+                    this.logger.LogError("Random failure occurred with value {RandomInt}", randomInt);
+                    throw new Exception("Random failure occurred.");
+                }
+
+                return await Task.FromResult(
                 Enumerable.Range(1, 5).Select((index) => new WeatherForecast
                 {
                     Date = DateTime.Now.AddDays(index),
                     TemperatureC = Random.Shared.Next(-20, 55),
                     Summary = Summaries[Random.Shared.Next(Summaries.Length)],
                 }).ToArray());
+            });
 
             return this.Ok(result);
         }

@@ -1,9 +1,15 @@
 namespace Sandbox.WeatherApi;
 
 using System.Reflection;
+
 using dotenv.net;
+
+using Polly;
+
 using Sandbox.WeatherApi.Filters;
+
 using Serilog;
+
 using Swashbuckle.AspNetCore.Filters;
 
 public static class Program
@@ -49,6 +55,19 @@ public static class Program
         builder.Host.UseSerilog((context, configuration) =>
         {
             configuration.ReadFrom.Configuration(context.Configuration);
+        });
+
+        builder.Services.AddResiliencePipeline("default", x =>
+        {
+            x.AddRetry(new Polly.Retry.RetryStrategyOptions
+            {
+                ShouldHandle = new PredicateBuilder().Handle<Exception>(),
+                Delay = TimeSpan.FromSeconds(3),
+                MaxRetryAttempts = 3,
+                BackoffType = DelayBackoffType.Exponential,
+                UseJitter = true,
+            })
+            .AddTimeout(TimeSpan.FromSeconds(10));
         });
 
         return builder;
