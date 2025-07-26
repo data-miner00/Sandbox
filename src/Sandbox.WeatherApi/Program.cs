@@ -1,46 +1,49 @@
+namespace Sandbox.WeatherApi;
+
 using System.Reflection;
+using dotenv.net;
 using Sandbox.WeatherApi.Filters;
 using Swashbuckle.AspNetCore.Filters;
-using dotenv.net;
 
-DotEnv.Load();
-
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllers(config =>
+public static class Program
 {
-    // The very first filter that a request reach
-    config.Filters.Add(new GlobalFilter());
-});
+    public static void Main(string[] args)
+    {
+        DotEnv.Load();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.EnableAnnotations();
-    c.ExampleFilters();
-});
+        var builder = WebApplication.CreateBuilder(args).ConfigureServices();
 
-var b = builder.Configuration.GetSection("CABAL_DIR").Value;
-var a = builder.Configuration.GetSection("SHAUN").Value;
-var c = builder.Configuration.GetSection("BEN").Value;
+        var app = builder.Build();
 
-Console.WriteLine(b);
-builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
+        app.UseSwagger();
+        app.UseSwaggerUI();
+        app.UseHttpsRedirection();
+        app.UseAuthorization();
+        app.MapControllers();
+        app.Run();
+    }
 
-var app = builder.Build();
+    private static WebApplicationBuilder ConfigureServices(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddControllers(config =>
+        {
+            // The very first filter that a request reach
+            config.Filters.Add(new GlobalFilter());
+        });
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen(c =>
+        {
+            c.EnableAnnotations();
+            c.ExampleFilters();
+        });
+
+        var b = builder.Configuration.GetSection("CABAL_DIR").Value;
+
+        Console.WriteLine(b);
+        builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
+
+        return builder;
+    }
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();

@@ -1,7 +1,8 @@
 ﻿namespace Sandbox.WeatherApi.Examples
 {
-    using Swashbuckle.AspNetCore.Filters;
     using System.Collections.Generic;
+    using Sandbox.WeatherApi.Models;
+    using Swashbuckle.AspNetCore.Filters;
 
     public class WeatherForecastExample : IMultipleExamplesProvider<WeatherForecast>
     {
