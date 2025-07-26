@@ -3,6 +3,7 @@ namespace Sandbox.WeatherApi;
 using System.Reflection;
 using dotenv.net;
 using Sandbox.WeatherApi.Filters;
+using Serilog;
 using Swashbuckle.AspNetCore.Filters;
 
 public static class Program
@@ -15,6 +16,7 @@ public static class Program
 
         var app = builder.Build();
 
+        app.UseSerilogRequestLogging();
         app.UseSwagger();
         app.UseSwaggerUI();
         app.UseHttpsRedirection();
@@ -43,6 +45,11 @@ public static class Program
 
         Console.WriteLine(b);
         builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
+
+        builder.Host.UseSerilog((context, configuration) =>
+        {
+            configuration.ReadFrom.Configuration(context.Configuration);
+        });
 
         return builder;
     }

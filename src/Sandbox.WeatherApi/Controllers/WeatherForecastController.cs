@@ -1,9 +1,13 @@
 namespace Sandbox.WeatherApi.Controllers
 {
     using System.Net;
+
     using Microsoft.AspNetCore.Mvc;
+
     using Sandbox.WeatherApi.Examples;
     using Sandbox.WeatherApi.Filters;
+    using Sandbox.WeatherApi.Models;
+
     using Swashbuckle.AspNetCore.Annotations;
     using Swashbuckle.AspNetCore.Filters;
 
@@ -11,16 +15,17 @@ namespace Sandbox.WeatherApi.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
+        private static readonly string[] Summaries =
+        [
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        ];
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<WeatherForecastController> logger;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
-            _logger = logger;
+            this.logger = logger;
+            logger.LogInformation("Hello world");
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -41,7 +46,7 @@ namespace Sandbox.WeatherApi.Controllers
             return this.Ok(result);
         }
 
-        [HttpGet(Name = "Random")]
+        [HttpGet("random", Name = "Random")]
         [ScopedFilter("hello world")]
         [ScopedAsyncFilter]
         public Task<IActionResult> GetRandom()
