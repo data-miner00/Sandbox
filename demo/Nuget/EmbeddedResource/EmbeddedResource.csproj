@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Sandbox.Nuget.NetCore.$(MSBuildProjectName)</RootNamespace>
+    <Title>Embedded Resource</Title>
+    <Description>This is a testing nuget project for embedded resource</Description>
+    <Copyright>Copyright © Shaun Chong</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>favicon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/data-miner00/Sandbox</RepositoryUrl>
+    <PackageTags>netcore;experiment;ignore</PackageTags>
+    <PackageLicenseExpression>WTFPL</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/data-miner00/Sandbox</PackageProjectUrl>
+    <PackageId>sandbox.nuget.netcore.embedded</PackageId>
+    <Company>Shaun Chong</Company>
+    <PackageReleaseNotes>Added Sample.cs</PackageReleaseNotes>
+    <Authors>data-miner00</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="resource.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="resource.txt" />
+  </ItemGroup>
+
+</Project>

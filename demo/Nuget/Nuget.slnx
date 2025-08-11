@@ -2,6 +2,7 @@
   <Folder Name="/Items/">
     <File Path="README.md" />
   </Folder>
+  <Project Path="EmbeddedResource/EmbeddedResource.csproj" Id="135de8a2-5e00-40d2-b154-824ee18cdada" />
   <Project Path="Sandbox.Nuget.NetCore/Sandbox.Nuget.NetCore.csproj" />
   <Project Path="Sandbox.Nuget.NetFramework/Sandbox.Nuget.NetFramework.csproj" Id="666ad1ee-bb96-46fa-bd05-444994670c46" />
 </Solution>
