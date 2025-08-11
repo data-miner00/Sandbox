@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Sandbox.Nuget.NetCore/Sandbox.Nuget.NetCore.csproj" />
+  <Project Path="Sandbox.Nuget.NetFramework/Sandbox.Nuget.NetFramework.csproj" Id="666ad1ee-bb96-46fa-bd05-444994670c46" />
+</Solution>
