@@ -11,7 +11,7 @@
     <readme>README.md</readme>
     <projectUrl>https://github.com/data-miner00/Sandbox</projectUrl>
     <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <releaseNotes>Added Sample.cs</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>netframework experiment ignore</tags>
   </metadata>
