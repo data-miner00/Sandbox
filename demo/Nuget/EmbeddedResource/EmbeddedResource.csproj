@@ -29,4 +29,15 @@
     <EmbeddedResource Include="resource.txt" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="favicon.png">
+      <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
 </Project>
