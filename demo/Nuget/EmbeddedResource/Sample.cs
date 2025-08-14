@@ -5,12 +5,21 @@ namespace Sandbox.Nuget.NetCore.EmbeddedResource
     public class Sample
     {
         private const string ResourceFileName = "resource.txt";
+        private const string HelloFileName = "hello.txt";
 
         public static string Resource
         {
             get
             {
                 return ReadResource(ResourceFileName);
+            }
+        }
+
+        public static string Hello
+        {
+            get
+            {
+                return ReadResource(HelloFileName);
             }
         }
 

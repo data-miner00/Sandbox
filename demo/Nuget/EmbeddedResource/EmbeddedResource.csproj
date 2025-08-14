@@ -40,4 +40,25 @@
     </None>
   </ItemGroup>
 
+  <!-- Parameters with default value -->
+  <PropertyGroup>
+    <Name>Alice</Name>
+  </PropertyGroup>	
+
+  <Target Name="GenerateHelloFile" BeforeTargets="BeforeBuild">
+    <ReadLinesFromFile File="hello.template.txt">
+      <Output TaskParameter="Lines" PropertyName="HelloLines" />
+    </ReadLinesFromFile>
+
+    <ItemGroup>
+      <ProcessedLines Include="$(HelloLines.Replace('{{name}}', '$(Name)'))" />
+    </ItemGroup>
+
+    <WriteLinesToFile File="bin/hello.txt" Lines="@(ProcessedLines)" Overwrite="true" Encoding="UTF-8" />
+  </Target>
+
+  <ItemGroup>
+    <EmbeddedResource Include="bin/hello.txt" Pack="true" PackagePath="hello.txt" />
+  </ItemGroup>
+
 </Project>
