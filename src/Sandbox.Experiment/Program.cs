@@ -1,10 +1,12 @@
 ﻿namespace Sandbox.Experiment;
 
+using System.Threading.Tasks;
+
 public static class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
-        Algra.Demo();
+        await Semaphora.DemoAsync();
         Console.WriteLine();
     }
 }
