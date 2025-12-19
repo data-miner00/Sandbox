@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Cross Origin Resource Sharing Demo</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
+</head>
+<body>
+    <h1>Cross Origin Resource Sharing</h1>
+
+    <h2>GET /weatherforecast</h2>
+    <pre id="output1"></pre>
+    <p id="error1" style="color: red; margin-bottom: 40px;"></p>
+
+    <h2>GET /weatherforecast with allowed header</h2>
+    <pre id="output2"></pre>
+    <p id="error2" style="color: red; margin-bottom: 40px;"></p>
+
+    <h2>GET /weatherforecast with disallowed header</h2>
+    <pre id="output3"></pre>
+    <p id="error3" style="color: red; margin-bottom: 40px;"></p>
+
+    <h2>POST /weatherforecast with allowed method</h2>
+    <pre id="output4"></pre>
+    <p id="error4" style="color: red; margin-bottom: 40px;"></p>
+
+    <h2>DELETE /weatherforecast with disallowed method</h2>
+    <pre id="output5"></pre>
+    <p id="error5" style="color: red; margin-bottom: 40px;"></p>
+
+    <script>
+        const apiUrl = "https://localhost:7198";
+
+        // Normal GET call
+        const outputElement1 = document.getElementById("output1");
+        const errorElement1 = document.getElementById("error1");
+
+        fetch(`${apiUrl}/weatherforecast`, {
+            method: "GET",
+            headers: {}
+        }).catch((reason) => {
+            errorElement1.innerText = reason
+        }).then((response) => response.text())
+            .then((content) => {
+                outputElement1.innerText = content;
+            })
+
+        // GET call with allowed header
+        const outputElement2 = document.getElementById("output2");
+        const errorElement2 = document.getElementById("error2");
+
+        fetch(`${apiUrl}/weatherforecast`, {
+            method: "GET",
+            headers: { "X-Shaun": "hello world" }
+        }).catch((reason) => {
+            errorElement2.innerText = reason
+        }).then((response) => response.text())
+            .then((content) => {
+                outputElement2.innerText = content;
+            })
+
+        // GET call with disallowed header
+        const outputElement3 = document.getElementById("output3");
+        const errorElement3 = document.getElementById("error3");
+
+        fetch(`${apiUrl}/weatherforecast`, {
+            method: "GET",
+            headers: { "X-Dave": "bye world" }
+        }).catch((reason) => {
+            errorElement3.innerText = reason
+        }).then((response) => response.text())
+            .then((content) => {
+                outputElement3.innerText = content;
+            })
+
+        // Allowed POST calls
+        const outputElement4 = document.getElementById("output4");
+        const errorElement4 = document.getElementById("error4");
+
+        fetch(`${apiUrl}/weatherforecast`, {
+            method: "POST",
+            headers: {}
+        }).catch((reason) => {
+            errorElement4.innerText = reason
+        }).then((response) => response.text())
+            .then((content) => {
+                outputElement4.innerText = content;
+            })
+
+        // Disallowed DELETE calls
+        const outputElement5 = document.getElementById("output5");
+        const errorElement5 = document.getElementById("error5");
+
+        fetch(`${apiUrl}/weatherforecast`, {
+            method: "DELETE",
+            headers: {}
+        }).catch((reason) => {
+            errorElement5.innerText = reason
+        }).then((response) => response.text())
+            .then((content) => {
+                outputElement5.innerText = content;
+            })
+
+    </script>
+</body>
+</html>

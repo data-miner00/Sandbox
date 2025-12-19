@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Frontend/Frontend.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="WebApi/WebApi.csproj" Id="31ab1e30-1651-4823-b31d-c10fe0b2c424" />
+</Solution>
