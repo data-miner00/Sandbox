@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Sandbox.Concepts\Sandbox.Concepts.csproj" />
+    <ProjectReference Include="..\Sandbox.Silo\Sandbox.Silo.csproj" />
     <ProjectReference Include="..\Sandbox.SQLite\Sandbox.SQLite.csproj" />
   </ItemGroup>
 
