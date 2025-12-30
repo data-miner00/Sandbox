@@ -10,7 +10,7 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-  - stage: 'Build Sandbox'
+  - stage: 'BuildSandbox'
     displayName: 'Build the sandbox projects'
     jobs: 
       - job: 'Build'
@@ -45,7 +45,7 @@ stages:
               codeCoverageEnabled: false
               diagnosticsEnabled: false
 
-  - stage: 'Build Demo'
+  - stage: 'BuildDemo'
     displayName: 'Build the demo projects'
     jobs: 
       - job: 'Build'
