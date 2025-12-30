@@ -45,30 +45,17 @@ stages:
               codeCoverageEnabled: false
               diagnosticsEnabled: false
 
-  - stage: 'BuildDemo'
-    displayName: 'Build the demo projects'
-    jobs: 
-      - job: 'Build'
-        variables:
-          solution: 'demo/Cors/Cors.slnx'
-        
-        steps:
-          - task: NuGetToolInstaller@1
+  - template: ci/build-demo.yml
+    parameters:
+      stageName: BuildAws
+      solution: demo/Aws/Aws.sln
 
-          - task: CmdLine@2
-            inputs:
-              script: |
-                echo  'Default Working Directory: $(System.DefaultWorkingDirectory)'
-                echo  'Pipeline Workspace: $(Pipeline.Workspace)'
-                dir
-            displayName: Show working directory
+  - template: ci/build-demo.yml
+    parameters:
+      stageName: BuildAzure
+      solution: demo/Azure/Azure.sln
 
-          - task: NuGetCommand@2
-            inputs:
-              restoreSolution: '$(solution)'
-
-          - task: VSBuild@1
-            inputs:
-              solution: '$(solution)'
-              platform: '$(buildPlatform)'
-              configuration: '$(buildConfiguration)'
+  - template: ci/build-demo.yml
+    parameters:
+      stageName: BuildDesktop
+      solution: demo/Desktop/Desktop.sln
