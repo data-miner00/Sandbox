@@ -25,7 +25,7 @@ ASP.NET WebAPI have the `.UseCors` middleware that can configure the CORS option
 The OPTIONS endpoint will always return `204 No Content`, but with varying headers based on the request:
 1. If the requestor **Origin** is not allowed, it will not return any headers in the response. The browser will understood this as illegitimate call and refuse to call the triggering API.
 1. If the requestor **Origin** is allowed, it will return with header `Access-Control-Allow-Origin`, `Access-Control-Allow-Headers` if applicable and `Access-Control-Allow-Methods` if applicable. Any headers or methods that is not in the value will be refused by the browser.
-1. It might return `405 Method Not Allowed` if the `Origin` is missing from the header.
+1. It might return `405 Method Not Allowed` if any of the required options is missing from the header.
 
 ![Screenshot of calling the OPTIONS endpoint from Postman](HttpOptions.png)
 
