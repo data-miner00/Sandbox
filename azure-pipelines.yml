@@ -10,52 +10,40 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-  - stage: 'BuildSandbox'
-    displayName: 'Build the sandbox projects'
-    jobs: 
-      - job: 'Build'
-        variables:
-          solution: 'src/Sandbox.sln'
-        
-        steps:
-          - task: NuGetToolInstaller@1
-
-          - task: CmdLine@2
-            inputs:
-              script: |
-                echo  'Default Working Directory: $(System.DefaultWorkingDirectory)'
-                echo  'Pipeline Workspace: $(Pipeline.Workspace)'
-                dir
-            displayName: Show working directory
-
-          - task: NuGetCommand@2
-            inputs:
-              restoreSolution: '$(solution)'
-
-          - task: VSBuild@1
-            inputs:
-              solution: '$(solution)'
-              platform: '$(buildPlatform)'
-              configuration: '$(buildConfiguration)'
-
-          - task: VSTest@3
-            inputs:
-              platform: '$(buildPlatform)'
-              configuration: '$(buildConfiguration)'
-              codeCoverageEnabled: false
-              diagnosticsEnabled: false
-
+  - template: ci/build-sandbox.yml
+  
   - template: ci/build-demo.yml
     parameters:
       stageName: BuildAws
       solution: demo/Aws/Aws.sln
+      displayName: Build Aws Projects
 
   - template: ci/build-demo.yml
     parameters:
       stageName: BuildAzure
       solution: demo/Azure/Azure.sln
+      displayName: Build Azure Projects
 
   - template: ci/build-demo.yml
     parameters:
       stageName: BuildDesktop
       solution: demo/Desktop/Desktop.sln
+      displayName: Build Desktop Projects
+
+  - template: ci/build-demo.yml
+    parameters:
+      stageName: BuildFaultHandling
+      solution: demo/FaultHandling/FaultHandling.sln
+      displayName: Build Fault Handling Projects
+
+  - template: ci/build-demo.yml
+    parameters:
+      stageName: BuildFeatureFlag
+      solution: demo/FeatureFlag/FeatureFlag.sln
+      displayName: Build Feature Flag Projects
+
+  - template: ci/build-demo.yml
+    parameters:
+      stageName: BuildWebSocket
+      solution: demo/WebSocket/WebSocket.sln
+      displayName: Build Web Socket Projects
