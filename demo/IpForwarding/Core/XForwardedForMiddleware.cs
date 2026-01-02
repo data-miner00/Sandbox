@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 namespace Core
 {
     /// <summary>
-    /// Middleware that forwards the X-Forwarded-For header and appends the current connection's IP address
+    /// Middleware that captures X-Forwarded-For header and stores it in HttpContext
     /// </summary>
     public class XForwardedForMiddleware
     {
@@ -22,7 +22,7 @@ namespace Core
 
             if (!string.IsNullOrEmpty(remoteIp))
             {
-                // Get existing X-Forwarded-For header value
+                // Get existing X-Forwarded-For header value from incoming request
                 var existingForwardedFor = context.Request.Headers["X-Forwarded-For"].FirstOrDefault();
 
                 // Build the new X-Forwarded-For value
@@ -38,8 +38,8 @@ namespace Core
                     newForwardedFor = remoteIp;
                 }
 
-                // Set the updated X-Forwarded-For header
-                context.Request.Headers["X-Forwarded-For"] = newForwardedFor;
+                // Store in HttpContext.Items for use by the delegating handler
+                context.Items[Constants.XForwardedForKey] = newForwardedFor;
             }
 
             // Call the next middleware in the pipeline

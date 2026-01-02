@@ -8,5 +8,7 @@
 
         public static readonly string SecondApiBaseUrl = "https://localhost:7076";
         public static readonly string ThirdApiBaseUrl = "https://localhost:7056";
+
+        public const string XForwardedForKey = "X-Forwarded-For-Value";
     }
 }
