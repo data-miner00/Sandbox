@@ -1,0 +1,41 @@
+parameters:
+  - name: stageName
+    type: string
+  - name: solution
+    type: string
+  - name: workingDirectory
+    type: string
+  - name: displayName
+    type: string
+    default: 'Build the SLNX demo projects'
+
+stages:
+  - stage: '${{ parameters.stageName }}'
+    displayName: '${{ parameters.displayName }}'
+    jobs: 
+      - job: 'Build'
+        variables:
+          solution: '${{ parameters.solution }}'
+        
+        steps:
+          - task: NuGetToolInstaller@1
+
+          - task: CmdLine@2
+            inputs:
+              script: |
+                echo  'Default Working Directory: $(System.DefaultWorkingDirectory)'
+                echo  'Pipeline Workspace: $(Pipeline.Workspace)'
+                dir
+            displayName: Show working directory
+
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'restore'
+              projects: '**/*.csproj'
+              workingDirectory: '$(workingDirectory)'
+
+          - task: VSBuild@1
+            inputs:
+              solution: '$(solution)'
+              platform: '$(buildPlatform)'
+              configuration: '$(buildConfiguration)'

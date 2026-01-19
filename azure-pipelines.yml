@@ -53,3 +53,10 @@ stages:
       stageName: BuildIpForwarding
       solution: demo/IpForwarding/IpForwarding.sln
       displayName: Build IP Forwarding Projects
+
+  - template: ci/build-demo-slnx.yml
+    parameters:
+      stageName: BuildCors
+      solution: demo/Cors/Cors.slnx
+      workingDirectory: demo/Cors
+      displayName: Build Cors Projects
