@@ -17,42 +17,49 @@ stages:
       stageName: BuildAws
       solution: demo/Aws/Aws.sln
       displayName: Build Aws Projects
+      skip: true
 
   - template: ci/build-demo.yml
     parameters:
       stageName: BuildAzure
       solution: demo/Azure/Azure.sln
       displayName: Build Azure Projects
+      skip: true
 
   - template: ci/build-demo.yml
     parameters:
       stageName: BuildDesktop
       solution: demo/Desktop/Desktop.sln
       displayName: Build Desktop Projects
+      skip: true
 
   - template: ci/build-demo.yml
     parameters:
       stageName: BuildFaultHandling
       solution: demo/FaultHandling/FaultHandling.sln
       displayName: Build Fault Handling Projects
+      skip: true
 
   - template: ci/build-demo.yml
     parameters:
       stageName: BuildFeatureFlag
       solution: demo/FeatureFlag/FeatureFlag.sln
       displayName: Build Feature Flag Projects
+      skip: true
 
   - template: ci/build-demo.yml
     parameters:
       stageName: BuildWebSocket
       solution: demo/WebSocket/WebSocket.sln
       displayName: Build Web Socket Projects
+      skip: true
 
   - template: ci/build-demo.yml
     parameters:
       stageName: BuildIpForwarding
       solution: demo/IpForwarding/IpForwarding.sln
       displayName: Build IP Forwarding Projects
+      skip: true
 
   - template: ci/build-demo-slnx.yml
     parameters:
