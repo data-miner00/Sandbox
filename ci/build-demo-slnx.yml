@@ -3,8 +3,6 @@ parameters:
     type: string
   - name: solution
     type: string
-  - name: workingDirectory
-    type: string
   - name: displayName
     type: string
     default: 'Build the SLNX demo projects'
@@ -31,8 +29,7 @@ stages:
           - task: DotNetCoreCLI@2
             inputs:
               command: 'restore'
-              projects: '**/*.csproj'
-              workingDirectory: '$(workingDirectory)'
+              projects: '$(solution)'
 
           - task: VSBuild@1
             inputs:
