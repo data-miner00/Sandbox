@@ -6,6 +6,10 @@
     <RootNamespace>Benchmarks.$(MSBuildProjectName)</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)' != 'net48'">
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.15.8" />
   </ItemGroup>
