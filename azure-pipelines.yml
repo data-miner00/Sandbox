@@ -59,3 +59,9 @@ stages:
       stageName: BuildCors
       solution: demo/Cors/Cors.slnx
       displayName: Build Cors Projects
+
+  - template: ci/build-demo-slnx.yml
+    parameters:
+      stageName: BuildBenchmarks
+      solution: demo/Benchmarks/Benchmarks.slnx
+      displayName: Build Cors Projects
