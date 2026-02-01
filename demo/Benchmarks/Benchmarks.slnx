@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="Net10/Net10.csproj" Id="1ddf4c51-4189-4ff0-9167-4da36d83b5f2" />
   <Project Path="Net48Net10/Net48Net10.csproj" Id="93e32136-4be2-4aaa-8088-fa3d04d4da9d" />
+  <Project Path="Net8Net10/Net8Net10.csproj" Id="41f46ffe-40e8-4026-82c1-5fa4bc3c06cb" />
 </Solution>
