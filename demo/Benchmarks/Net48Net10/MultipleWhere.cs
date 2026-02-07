@@ -6,7 +6,7 @@
     using System.Linq;
     using System.Collections.Generic;
 
-    [SimpleJob(RuntimeMoniker.Net48)]
+    [SimpleJob(RuntimeMoniker.Net48, baseline: true)]
     [SimpleJob(RuntimeMoniker.Net10_0)]
     [MemoryDiagnoser]
     public class MultipleWhere
@@ -53,7 +53,7 @@
             }
         }
 
-        [Benchmark]
+        [Benchmark(Baseline = true)]
         public List<User> SingleWhere()
         {
             return this.users.Where(x => x.Name.StartsWith("Ol") && x.City.Equals("Chicago") && x.Age < 40).ToList();
