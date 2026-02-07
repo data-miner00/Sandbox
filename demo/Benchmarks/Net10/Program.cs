@@ -9,6 +9,6 @@ if (runAllBenchmarks)
 }
 else
 {
-    var summary = BenchmarkRunner.Run<SleepBenchmark>();
+    var summary = BenchmarkRunner.Run<MultipleWhere>();
     var _ = summary;
 }

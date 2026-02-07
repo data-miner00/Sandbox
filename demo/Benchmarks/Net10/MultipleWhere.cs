@@ -1,12 +1,15 @@
 ﻿namespace Benchmarks.Net10;
 
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Engines;
 using System;
 using System.Collections.Generic;
 
 [MemoryDiagnoser]
 public class MultipleWhere
 {
+    private readonly Consumer consumer = new();
+
     public sealed record User(string Name, string City, int Age);
 
     private List<User> users = [];
@@ -36,18 +39,18 @@ public class MultipleWhere
     }
 
     [Benchmark(Baseline = true)]
-    public List<User> SingleWhere()
+    public void SingleWhere()
     {
-        return this.users.Where(x => x.Name.StartsWith("Ol") && x.City.Equals("Chicago") && x.Age < 40).ToList();
+        this.users.Where(x => x.Name.StartsWith("Ol") && x.City.Equals("Chicago") && x.Age < 40).Consume(consumer);
     }
 
     [Benchmark]
-    public List<User> MultipleWheres()
+    public void MultipleWheres()
     {
-        return this.users
+        this.users
             .Where(x => x.Name.StartsWith("Ol"))
             .Where(x => x.City.Equals("Chicago"))
             .Where(x => x.Age < 40)
-            .ToList();
+            .Consume(this.consumer);
     }
 }
