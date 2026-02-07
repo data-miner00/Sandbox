@@ -6,6 +6,11 @@ using System.Collections.Generic;
 using System.Text;
 
 [MemoryDiagnoser]
+[AsciiDocExporter]
+[RPlotExporter]
+[PlainExporter]
+[JsonExporter]
+[XmlExporter]
 public class SleepBenchmark
 {
     [Benchmark]
