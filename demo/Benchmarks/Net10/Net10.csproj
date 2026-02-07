@@ -12,4 +12,8 @@
     <PackageReference Include="BenchmarkDotNet" Version="0.15.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Net10\Core.Net10.csproj" />
+  </ItemGroup>
+
 </Project>
