@@ -73,5 +73,18 @@ namespace Sandbox.WeatherApi.Controllers
         {
             return Task.FromResult(this.Ok(20) as IActionResult);
         }
+
+        [HttpPost("echo/file")]
+        public async Task<IActionResult> EchoFileContent(IFormFile file)
+        {
+            string fileContents;
+            using (var stream = file.OpenReadStream())
+            using (var reader = new StreamReader(stream))
+            {
+                fileContents = await reader.ReadToEndAsync();
+            }
+
+            return this.Ok(fileContents);
+        }
     }
 }
