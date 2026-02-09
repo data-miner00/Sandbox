@@ -1,0 +1,20 @@
+// * Summary *
+
+BenchmarkDotNet v0.15.8, Windows 10 (10.0.19045.6456/22H2/2022Update)
+11th Gen Intel Core i9-11900 2.50GHz, 1 CPU, 16 logical and 8 physical cores
+  [Host]             : .NET Framework 4.8.1 (4.8.9310.0), X64 RyuJIT VectorSize=256 [AttachedDebugger]
+  .NET 8.0           : .NET 8.0.23 (8.0.23, 8.0.2325.60607), X64 RyuJIT x86-64-v4
+  .NET Framework 4.8 : .NET Framework 4.8.1 (4.8.9310.0), X64 RyuJIT VectorSize=256
+
+
+| Method                     | Job                | Runtime            | Size | Mean    | Error    | StdDev   | Ratio | Allocated | Alloc Ratio |
+|--------------------------- |------------------- |------------------- |----- |--------:|---------:|---------:|------:|----------:|------------:|
+| WithoutConfigureAwaitFalse | .NET 8.0           | .NET 8.0           | 100  | 1.552 s | 0.0081 s | 0.0076 s |  1.00 |  16.57 KB |        1.00 |
+| WithConfigureAwaitFalse    | .NET 8.0           | .NET 8.0           | 100  | 1.552 s | 0.0083 s | 0.0078 s |  1.00 |  16.58 KB |        1.00 |
+| WithoutConfigureAwaitFalse | .NET Framework 4.8 | .NET Framework 4.8 | 100  | 1.569 s | 0.0161 s | 0.0134 s |  1.01 |     32 KB |        1.93 |
+| WithConfigureAwaitFalse    | .NET Framework 4.8 | .NET Framework 4.8 | 100  | 1.567 s | 0.0162 s | 0.0144 s |  1.01 |     32 KB |        1.93 |
+|                            |                    |                    |      |         |          |          |       |           |             |
+| WithoutConfigureAwaitFalse | .NET 8.0           | .NET 8.0           | 200  | 3.104 s | 0.0149 s | 0.0139 s |  1.00 |  32.98 KB |        1.00 |
+| WithConfigureAwaitFalse    | .NET 8.0           | .NET 8.0           | 200  | 3.107 s | 0.0097 s | 0.0090 s |  1.00 |  32.98 KB |        1.00 |
+| WithoutConfigureAwaitFalse | .NET Framework 4.8 | .NET Framework 4.8 | 200  | 3.155 s | 0.0293 s | 0.0274 s |  1.02 |     64 KB |        1.94 |
+| WithConfigureAwaitFalse    | .NET Framework 4.8 | .NET Framework 4.8 | 200  | 3.145 s | 0.0416 s | 0.0369 s |  1.01 |     64 KB |        1.94 |

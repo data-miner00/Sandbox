@@ -2,5 +2,6 @@
   <Project Path="Core.Net10/Core.Net10.csproj" Id="e7099de8-a5dd-40c0-87eb-91a81f9f623f" />
   <Project Path="Net10/Net10.csproj" Id="1ddf4c51-4189-4ff0-9167-4da36d83b5f2" />
   <Project Path="Net48Net10/Net48Net10.csproj" Id="93e32136-4be2-4aaa-8088-fa3d04d4da9d" />
+  <Project Path="Net48Net8/Net48Net8.csproj" Id="7b2dcc88-8ba8-4731-89f4-d8b7460c5239" />
   <Project Path="Net8Net10/Net8Net10.csproj" Id="41f46ffe-40e8-4026-82c1-5fa4bc3c06cb" />
 </Solution>
