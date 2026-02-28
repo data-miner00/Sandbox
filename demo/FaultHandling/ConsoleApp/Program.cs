@@ -8,9 +8,9 @@ var logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateLogger();
 
-var errorRate = 60;
+var errorRate = 90;
 
-var client = new DangerClient(errorRate, logger);
+var client = new DangerClient(errorRate, logger, false);
 
 // Use simple policy
 var policy = Policy.Handle<BarrierPostPhaseException>()
@@ -28,13 +28,13 @@ var options = new RetryStrategyOptions
     ShouldHandle = new PredicateBuilder().Handle<BarrierPostPhaseException>(),
     BackoffType = DelayBackoffType.Exponential,
     UseJitter = true,  // Adds a random factor to the delay
-    MaxRetryAttempts = 10,
+    MaxRetryAttempts = 40,
     Delay = TimeSpan.FromSeconds(3),
 };
 
 var pipelineBuilder = new ResiliencePipelineBuilder().AddRetry(options);
 
-client = new DangerClient(errorRate, logger);
+client = new DangerClient(errorRate, logger, true);
 pipelineBuilder.Build().Execute(() =>
 {
     client.Execute();
