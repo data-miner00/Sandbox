@@ -1,24 +1,17 @@
-﻿namespace Sandbox.Experiment
+﻿namespace Sandbox.Azure.EntraID
 {
-    using Azure.Identity;
     using Microsoft.Graph;
     using Microsoft.Graph.Models;
 
-    internal class GraphUserRepository
+    internal class UserRepository
     {
-        private static readonly string[] SelectedFields = ["Id", "GivenName", "Surname", "CreatedDateTime"];
+        private static readonly string[] SelectedFields = ["Id", "DisplayName", "GivenName", "Surname", "CreatedDateTime"];
 
         private readonly GraphServiceClient client;
 
-        public GraphUserRepository(GraphServiceClient client)
+        public UserRepository(GraphServiceClient client)
         {
             this.client = client;
-        }
-
-        public GraphUserRepository()
-        {
-            var creds = new ClientSecretCredential("tenantId", "clientId", "clientSecret");
-            this.client = new GraphServiceClient(creds);
         }
 
         public async Task<User> GetByIdAsync(string id)

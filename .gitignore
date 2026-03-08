@@ -399,3 +399,6 @@ FodyWeavers.xsd
 
 # Ignored projects
 /src/Sandbox.ConsoleApp/
+
+# settings
+settings.dev.json

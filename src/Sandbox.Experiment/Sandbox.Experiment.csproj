@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <PackageReference Include="Bogus" Version="35.6.5" />
-    <PackageReference Include="Microsoft.Graph" Version="5.103.0" />
     <PackageReference Include="Microsoft.KernelMemory" Version="0.98.250508.3" />
     <PackageReference Include="Microsoft.KernelMemory.WebClient" Version="0.98.250508.3" />
     <PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.72.0" />

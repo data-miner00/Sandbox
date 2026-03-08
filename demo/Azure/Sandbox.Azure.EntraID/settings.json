@@ -1,0 +1,8 @@
+{
+  "appCredentials": {
+    // For the app, remember to add Directory.Read and Directory.ReadAll for the API permissions
+    "tenantId": "<tenantid>",
+    "clientId": "<clientid>",
+    "clientSecret": "<clientSecret>"
+  }
+}
