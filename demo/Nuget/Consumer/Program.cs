@@ -1,4 +1,5 @@
-﻿using Sandbox.Nuget.NetCore.EmbeddedResource;
+﻿using Sandbox.Nuget.MultiPlatform;
+using Sandbox.Nuget.NetCore.EmbeddedResource;
 
 namespace Sandbox.Nuget.NetCore.Consumer
 {
@@ -6,7 +7,11 @@ namespace Sandbox.Nuget.NetCore.Consumer
     {
         static void Main(string[] args)
         {
+            // Embedded Resource
             Console.WriteLine(Sample.Resource);
+
+            // Multiplatform
+            Console.WriteLine(Greetings.Hello);
         }
     }
 }

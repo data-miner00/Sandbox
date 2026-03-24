@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Sandbox.Nuget.MultiPlatform" Version="1.0.1" />
     <PackageReference Include="sandbox.nuget.netcore.embedded" Version="1.0.0" />
   </ItemGroup>
 

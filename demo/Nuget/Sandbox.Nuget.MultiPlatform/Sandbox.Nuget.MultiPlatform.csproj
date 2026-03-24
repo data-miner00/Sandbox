@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net481;net8.0;net10.0</TargetFrameworks>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <PackageVersion>1.0.1</PackageVersion>
+    <Title>Sandbox.Nuget.MultiPlatform</Title>
+    <Description>A simple greeting library for demo purpose.</Description>
+    <Copyright>Copyright © Shaun Chong</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>favicon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/data-miner00/Sandbox/tree/master/demo/Nuget/Sandbox.Nuget.Multiplatform</RepositoryUrl>
+    <PackageTags>netframework;netcore;experiment;ignore</PackageTags>
+    <PackageLicenseExpression>0BSD</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/data-miner00/Sandbox/tree/master/demo/Nuget/Sandbox.Nuget.Multiplatform</PackageProjectUrl>
+    <PackageId>Sandbox.Nuget.MultiPlatform</PackageId>
+    <Company>Shaun Chong</Company>
+    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+    <Authors>data-miner00</Authors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(TargetFramework) != 'net481'">
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Changed from Update to Include to fix an error. Thanks https://stackoverflow.com/a/76122058/23889131 -->
+    <None Include="favicon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

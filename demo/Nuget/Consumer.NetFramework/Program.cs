@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Sandbox.Nuget.MultiPlatform;
+
+namespace Consumer.NetFramework
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(Greetings.Hello);
+        }
+    }
+}
