@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="Transform">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+
+	<PropertyGroup>
+		<XdtDll>$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll</XdtDll>
+		<OutputDir>$(MSBuildThisFileDirectory)bin\Output\</OutputDir>
+	</PropertyGroup>
+
+	<UsingTask TaskName="TransformXml" AssemblyFile="$(XdtDll)" />
+
+	<ItemGroup>
+		<XmlTransform Include="People">
+			<Source>Base\People.xml</Source>
+			<Transform>Derived\People.derived.xml</Transform>
+			<Destination>$(OutputDir)People.xml</Destination>
+		</XmlTransform>
+
+		<!-- Add more pairs here as needed -->
+		<!-- <XmlTransform Include="settings">
+			<Source>Base\settings.base.xml</Source>
+			<Transform>Derived\settings.derived.xml</Transform>
+			<Destination>$(OutputDir)settings.xml</Destination>
+		</XmlTransform> -->
+	</ItemGroup>
+
+	<Target Name="Transform">
+		<MakeDir Directories="$(OutputDir)" />
+
+		<TransformXml Source="%(XmlTransform.Source)" Transform="%(XmlTransform.Transform)" Destination="%(XmlTransform.Destination)" StackTrace="true" />
+
+		<Message Text="Transformed → %(XmlTransform.Destination)" Importance="high" />
+	</Target>
+</Project>
