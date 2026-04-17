@@ -23,11 +23,17 @@
 		</XmlTransform>
 
 		<!-- Add more pairs here as needed -->
-		<!-- <XmlTransform Include="settings">
-			<Source>Base\settings.base.xml</Source>
-			<Transform>Derived\settings.derived.xml</Transform>
-			<Destination>$(OutputDir)settings.xml</Destination>
-		</XmlTransform> -->
+		<XmlTransform Include="App">
+			<Source>Base\App.config</Source>
+			<Transform>Derived\App.staging.config</Transform>
+			<Destination>$(OutputDir)App.staging.config</Destination>
+		</XmlTransform>
+
+		<XmlTransform Include="App">
+			<Source>Base\App.config</Source>
+			<Transform>Derived\App.production.config</Transform>
+			<Destination>$(OutputDir)App.production.config</Destination>
+		</XmlTransform>
 	</ItemGroup>
 
 	<Target Name="Transform" BeforeTargets="Build">
