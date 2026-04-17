@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="Transform">
+
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+
+	<PropertyGroup>
+		<XdtDll>$(PkgMicrosoft_Web_Xdt)\lib\net10.0\Microsoft.Web.XmlTransform.dll</XdtDll>
+		<OutputDir>$(MSBuildThisFileDirectory)bin\Output\</OutputDir>
+	</PropertyGroup>
+
+	<UsingTask TaskName="TransformXml" AssemblyFile="$(XdtDll)" />
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Web.Xdt" Version="3.2.6" GeneratePathProperty="true" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<XmlTransform Include="People">
+			<Source>Base\People.xml</Source>
+			<Transform>Derived\People.derived.xml</Transform>
+			<Destination>$(OutputDir)People.xml</Destination>
+		</XmlTransform>
+
+		<!-- Add more pairs here as needed -->
+		<XmlTransform Include="App">
+			<Source>Base\App.config</Source>
+			<Transform>Derived\App.staging.config</Transform>
+			<Destination>$(OutputDir)App.staging.config</Destination>
+		</XmlTransform>
+
+		<XmlTransform Include="App">
+			<Source>Base\App.config</Source>
+			<Transform>Derived\App.production.config</Transform>
+			<Destination>$(OutputDir)App.production.config</Destination>
+		</XmlTransform>
+	</ItemGroup>
+
+	<Target Name="Transform" BeforeTargets="Build">
+		<MakeDir Directories="$(OutputDir)" />
+
+		<TransformXml Source="%(XmlTransform.Source)" Transform="%(XmlTransform.Transform)" Destination="%(XmlTransform.Destination)" StackTrace="true" />
+
+		<Message Text="Transformed → %(XmlTransform.Destination)" Importance="high" />
+	</Target>
+</Project>

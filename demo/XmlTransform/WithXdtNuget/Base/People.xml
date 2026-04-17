@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<People>
+    <Person Id="shaun">
+        <Name>Shaun Chong</Name>
+        <Age>45</Age>
+        <Websites>
+            <Website Id="homepage" Href="https://staging.mysite.dev" IsDevMode="true" />
+            <Website Id="page2" Href="https://page2.staging.mysite.dev" IsDevMode="true" />
+            <Website Id="page4" Href="https://page4.staging.mysite.dev" IsDevMode="true" />
+        </Websites>
+    </Person>
+    <Person Id="zonbie">
+        <Name>Zonbie</Name>
+        <Age>145</Age>
+        <Websites>
+            <Website Id="hauntpage" Href="https://staging.hauntpage.dev" IsDevMode="true" />
+        </Websites>
+    </Person>
+</People>
