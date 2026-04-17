@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
   <Project Path="WithXdt/WithXdt.csproj" Id="60edf542-b3a4-4b6d-981c-0ecdb0c3bf29" />
 </Solution>
