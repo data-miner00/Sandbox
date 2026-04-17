@@ -4,7 +4,7 @@ stages:
     jobs:
       - job: "Build"
         variables:
-          solution: "demo/XmlTransform/XmlTransform.sln"
+          solution: "demo/XmlTransform/XmlTransform.slnx"
           outputFolderName: "Output"
 
         steps:
