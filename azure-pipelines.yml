@@ -8,6 +8,7 @@ pool: default
 variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  isLocalNugetRestoreFixedYet: false
 
 stages:
   - template: ci/build-sandbox.yml
@@ -64,4 +65,10 @@ stages:
     parameters:
       stageName: BuildBenchmarks
       solution: demo/Benchmarks/Benchmarks.slnx
-      displayName: Build Cors Projects
+      displayName: Build Benchmarks Projects
+
+  - ${{ if eq(variables.isLocalNugetRestoreFixedYet, 'true') }}: 
+    - template: ci/build-demo-slnx.yml
+      parameters:
+        stageName: BuildNuget
+        solution: demo/Nuget/Nuget.slnx # The nuget package are from local folder
