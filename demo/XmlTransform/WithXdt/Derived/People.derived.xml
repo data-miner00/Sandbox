@@ -21,15 +21,18 @@
 			<Website xdt:Locator="Match(Id)"
 					 Id="homepage"
 					 Href="https://mysite.dev"
-					 xdt:Transform="SetAttributes(Href)" />
+					 IsDevMode="false"
+					 xdt:Transform="SetAttributes(Href,IsDevMode)" />
 			<Website xdt:Locator="Match(Id)"
 					 Id="page2"
 					 Href="https://page2.mysite.dev"
-					 xdt:Transform="SetAttributes(Href)" />
+					 IsDevMode="false"
+					 xdt:Transform="SetAttributes(Href,IsDevMode)" />
 			<Website xdt:Locator="Match(Id)"
 					 Id="page4"
 					 Href="https://page4.mysite.dev"
-					 xdt:Transform="SetAttributes(Href)" />
+					 IsDevMode="false"
+					 xdt:Transform="SetAttributes(Href,IsDevMode)" />
 		</Websites>
 	</Person>
 	<Person xdt:Transform="Insert">
