@@ -8,4 +8,10 @@ Xml transformation with Xdt.
 msbuild WithXdt.csproj /t:Transform
 ```
 
+Or simply
+
+```
+msbuild
+```
+
 The resulting file will be in `bin/Output` folder.
