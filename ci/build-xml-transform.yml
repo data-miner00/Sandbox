@@ -1,0 +1,34 @@
+stages:
+  - stage: "BuildXMLTransform"
+    displayName: "Build XML transform projects"
+    jobs:
+      - job: "Build"
+        variables:
+          solution: "demo/XmlTransform/XmlTransform.sln"
+          outputFolderName: "Output"
+
+        steps:
+          - task: CmdLine@2
+            inputs:
+              script: |
+                echo  'Default Working Directory: $(System.DefaultWorkingDirectory)'
+                echo  'Pipeline Workspace: $(Pipeline.Workspace)'
+                dir
+            displayName: Show working directory
+
+          - task: VSBuild@1
+            inputs:
+              solution: "$(solution)"
+              platform: "$(buildPlatform)"
+              configuration: "$(buildConfiguration)"
+
+          - task: CopyFiles@2
+            inputs:
+              Contents: "demo/XmlTransform/WithXdt/bin/$(outputFolderName)/*"
+              TargetFolder: drop
+            displayName: "Copy files to drop folder"
+
+          - task: PublishBuildArtifacts@1
+            displayName: "Publish Artifact: drop"
+            inputs:
+              PathtoPublish: drop

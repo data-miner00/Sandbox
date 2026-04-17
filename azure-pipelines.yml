@@ -6,13 +6,13 @@ trigger:
 pool: default
 
 variables:
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+  buildPlatform: "Any CPU"
+  buildConfiguration: "Release"
   isLocalNugetRestoreFixedYet: false
 
 stages:
   - template: ci/build-sandbox.yml
-  
+
   - template: ci/build-demo.yml
     parameters:
       stageName: BuildAws
@@ -67,8 +67,10 @@ stages:
       solution: demo/Benchmarks/Benchmarks.slnx
       displayName: Build Benchmarks Projects
 
-  - ${{ if eq(variables.isLocalNugetRestoreFixedYet, 'true') }}: 
-    - template: ci/build-demo-slnx.yml
-      parameters:
-        stageName: BuildNuget
-        solution: demo/Nuget/Nuget.slnx # The nuget package are from local folder
+  - ${{ if eq(variables.isLocalNugetRestoreFixedYet, 'true') }}:
+      - template: ci/build-demo-slnx.yml
+        parameters:
+          stageName: BuildNuget
+          solution: demo/Nuget/Nuget.slnx # The nuget package are from local folder
+
+  - template: ci/build-xml-transform.yml
