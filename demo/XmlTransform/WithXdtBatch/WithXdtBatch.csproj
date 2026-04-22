@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="Transform">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+
+    <PropertyGroup>
+        <XdtDll>$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll</XdtDll>
+        <OutputDir>$(MSBuildThisFileDirectory)bin\Output\</OutputDir>
+    </PropertyGroup>
+
+    <UsingTask TaskName="TransformXml" AssemblyFile="$(XdtDll)" />
+
+    <ItemGroup>
+        <!-- Discover all transform files under Derived and map them to Base and Output preserving subfolders -->
+        <XmlTransform Include="Derived\\**\\*.config;Derived\\**\\*.xml">
+            <!-- Source is expected to be the corresponding file in Base by filename -->
+            <Source>Base\%(Filename)%(Extension)</Source>
+            <Transform>%(Identity)</Transform>
+            <!-- Place transformed output under $(OutputDir) keeping the same relative subfolder from Derived -->
+            <Destination>$(OutputDir)%(RecursiveDir)%(Filename)%(Extension)</Destination>
+        </XmlTransform>
+    </ItemGroup>
+
+    <Target Name="Transform" BeforeTargets="Build">
+        <!-- Ensure output root exists and create any subfolders that correspond to Derived recursive dirs -->
+        <MakeDir Directories="$(OutputDir)" />
+        <MakeDir Directories="@(XmlTransform->'$(OutputDir)%(RecursiveDir)')" />
+
+        <!-- Batch-run transforms for each discovered XmlTransform item -->
+        <TransformXml Source="%(XmlTransform.Source)" Transform="%(XmlTransform.Transform)" Destination="%(XmlTransform.Destination)" StackTrace="true" />
+
+        <Message Text="Transformed → %(XmlTransform.Destination)" Importance="high" />
+    </Target>
+</Project>

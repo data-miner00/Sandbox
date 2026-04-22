@@ -24,7 +24,7 @@ stages:
 
           - task: CopyFiles@2
             inputs:
-              Contents: "demo/XmlTransform/WithXdt/bin/$(outputFolderName)/*"
+              Contents: "demo/XmlTransform/WithXdt*/bin/$(outputFolderName)/**/*"
               TargetFolder: drop
             displayName: "Copy files to drop folder"
 

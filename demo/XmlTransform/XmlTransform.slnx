@@ -3,4 +3,5 @@
     <File Path="README.md" />
   </Folder>
   <Project Path="WithXdt/WithXdt.csproj" Id="60edf542-b3a4-4b6d-981c-0ecdb0c3bf29" />
+  <Project Path="WithXdtBatch/WithXdtBatch.csproj" Id="66be2b22-cceb-426a-8a59-8651c993f145" />
 </Solution>

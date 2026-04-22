@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<People xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<Person Id="shaun" xdt:Locator="Match(Id)">
+		<!-- Replace a node content -->
+		<Name xdt:Transform="Replace">Shaun Staging</Name>
+		
+		<Websites>
+			<!-- Append(Insert) into an array -->
+			<Website xdt:Transform="Insert"
+					 Id="page5"
+					 Href="https://page5.mysite.dev"
+					 IsDevMode="false" />
+
+			<!-- Append into an array before a specific node -->
+			<Website xdt:Transform="InsertBefore(//*[local-name()='Website' and @Id='page4'])"
+					 Id="page3"
+					 Href="https://page3.mysite.dev"
+					 IsDevMode="false" />
+
+			<!-- Change the content of an attribute -->
+			<Website xdt:Locator="Match(Id)"
+					 Id="homepage"
+					 Href="https://mysite.dev"
+					 IsDevMode="false"
+					 xdt:Transform="SetAttributes(Href,IsDevMode)" />
+			<Website xdt:Locator="Match(Id)"
+					 Id="page2"
+					 Href="https://page2.mysite.dev"
+					 IsDevMode="false"
+					 xdt:Transform="SetAttributes(Href,IsDevMode)" />
+			<Website xdt:Locator="Match(Id)"
+					 Id="page4"
+					 Href="https://page4.mysite.dev"
+					 IsDevMode="false"
+					 xdt:Transform="SetAttributes(Href,IsDevMode)" />
+		</Websites>
+	</Person>
+	<Person xdt:Transform="Insert">
+		<Name>Hello Staging!</Name>
+		<Age>0</Age>
+	</Person>
+</People>
