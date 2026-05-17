@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Generaton": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\Consumer\\Consumer.csproj"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Consumer/Consumer.csproj" Id="9c26e48f-b718-49bf-8eeb-6dafa056d580" />
+  <Project Path="Generaton/Generaton.csproj" Id="f4e5210e-f854-44c6-9c5b-64e499c06b7d" />
+</Solution>
