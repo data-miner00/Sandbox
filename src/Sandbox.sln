@@ -43,6 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Cache", "Sandbox.Cache\Sandbox.Cache.csproj", "{1259E703-4792-4ADA-AA6B-57984FFEF36B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{23BD2E04-4B01-457E-8FD6-5D753D4A4DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23BD2E04-4B01-457E-8FD6-5D753D4A4DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23BD2E04-4B01-457E-8FD6-5D753D4A4DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1259E703-4792-4ADA-AA6B-57984FFEF36B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1259E703-4792-4ADA-AA6B-57984FFEF36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1259E703-4792-4ADA-AA6B-57984FFEF36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1259E703-4792-4ADA-AA6B-57984FFEF36B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

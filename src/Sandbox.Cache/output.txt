@@ -1,0 +1,39 @@
+Current cache count: 0
+Current cache count: 1
+Current cache count: 1
+Current cache count: 2
+Current cache count: 3
+Current cache count: 3
+Current cache count: 3
+Dispose method called. 3c403939-51a4-475c-98e4-9ce9465f9ca7
+3c403939-51a4-475c-98e4-9ce9465f9ca7 object disposed.
+Current cache count: 3
+Dispose method called. cb22bff9-03c9-4507-962d-4f2589f0c733
+cb22bff9-03c9-4507-962d-4f2589f0c733 object disposed.
+Current cache count: 3
+Current cache count: 3
+Dispose method called. b1553c2b-c84c-4bf1-9219-bdaaf0823ba5
+b1553c2b-c84c-4bf1-9219-bdaaf0823ba5 object disposed.
+Dispose method called. 111040ed-6768-49ef-8d2e-5c30d50d492a
+111040ed-6768-49ef-8d2e-5c30d50d492a object disposed.
+Current cache count: 3
+Current cache count: 3
+Current cache count: 3
+Dispose method called. 23eda4de-893d-48f4-94a0-906a23b61fa4
+23eda4de-893d-48f4-94a0-906a23b61fa4 object disposed.
+Current cache count: 3
+Dispose method called. aafc22e3-047a-4f9e-9c40-0a452b12c196
+aafc22e3-047a-4f9e-9c40-0a452b12c196 object disposed.
+Current cache count: 3
+Current cache count: 3
+Dispose method called. 78b5c0cf-8666-416b-861a-cea36eefd530
+78b5c0cf-8666-416b-861a-cea36eefd530 object disposed.
+Current cache count: 3
+Current cache count: 3
+Dispose method called. 1ac06c87-b76b-4460-b1fb-545579492b99
+1ac06c87-b76b-4460-b1fb-545579492b99 object disposed.
+Current cache count: 3
+Dispose method called. f08d71e6-232f-4b3f-8fd2-ba0045462c01
+f08d71e6-232f-4b3f-8fd2-ba0045462c01 object disposed.
+Current cache count: 3
+Current cache count: 3
