@@ -1,36 +1,40 @@
-﻿namespace Sandbox.Cache
+﻿namespace Sandbox.Cache;
+
+using System;
+
+internal class DisposableObject : IDisposable
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    private readonly string name;
+    private readonly object gate = new();
 
-    internal class DisposableObject : IDisposable
+    private bool isDisposed;
+    private int count = 0;
+
+    public DisposableObject(string name)
     {
-        private string id = Guid.NewGuid().ToString();
-        private bool isDisposed;
-        private object _lock = new object();
-        private int _count = 0;
+        ArgumentException.ThrowIfNullOrWhiteSpace(name);
+        this.name = name;
+    }
 
-        public int Count => _count;
+    public int Count => this.count;
 
-        public void Execute()
+    public void Execute()
+    {
+        lock (this.gate)
         {
-            lock (_lock)
-            {
-                _count++;
-            }
+            this.count++;
         }
+    }
 
-        public void Dispose()
+    public void Dispose()
+    {
+        Console.WriteLine("Dispose method called. " + this.name);
+
+        if (!this.isDisposed)
         {
-            Console.WriteLine("Dispose method called. " + id);
+            this.isDisposed = true;
 
-            if (!isDisposed)
-            {
-                isDisposed = true;
-
-                Console.WriteLine($"{id} object disposed.");
-            }
+            Console.WriteLine($"{this.name} object disposed.");
         }
     }
 }
