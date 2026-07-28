@@ -6,7 +6,7 @@ public static class Program
 {
     public static async Task Main(string[] args)
     {
-        ExceptionBehavior.Demo();
+        LongOverflow.Demo();
         Console.WriteLine();
     }
 }
