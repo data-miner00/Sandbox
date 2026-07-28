@@ -12,8 +12,7 @@ internal static class Program
         };
 
         var cache = new MemoryCache(cacheOption);
-
-        Console.WriteLine($"Current cache count: {cache.Count}");
+        var ids = new HashSet<string>();
 
         for (var i = 0; i < 20; ++i)
         {
@@ -28,16 +27,24 @@ internal static class Program
                     entry.Size = 2;
                     entry.RegisterPostEvictionCallback((key, value, reason, state) =>
                     {
-                        if (value is IDisposable disposable)
+                        if (value is DisposableObject disposable)
                         {
+                            ids.RemoveWhere(x => x == disposable.Name);
                             disposable.Dispose();
+
+                            Console.WriteLine($"Current cache count: {cache.Count}");
+                            Console.WriteLine($"Current cache names: [{string.Join(',', ids.Order())}]");
                         }
                     });
 
-                    return new DisposableObject(Guid.NewGuid().ToString());
+                    var id = Guid.NewGuid().ToString();
+                    ids.Add(id);
+
+                    return new DisposableObject(id);
                 });
 
             Console.WriteLine($"Current cache count: {cache.Count}");
+            Console.WriteLine($"Current cache names: [{string.Join(',', ids.Order())}]");
 
             cachedObject?.Execute();
 

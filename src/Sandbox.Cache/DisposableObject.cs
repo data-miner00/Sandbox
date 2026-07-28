@@ -18,6 +18,8 @@ internal class DisposableObject : IDisposable
 
     public int Count => this.count;
 
+    public string Name => this.name;
+
     public void Execute()
     {
         lock (this.gate)
@@ -28,13 +30,15 @@ internal class DisposableObject : IDisposable
 
     public void Dispose()
     {
-        Console.WriteLine("Dispose method called. " + this.name);
-
         if (!this.isDisposed)
         {
             this.isDisposed = true;
 
-            Console.WriteLine($"{this.name} object disposed.");
+            Console.WriteLine($"{this.name} object disposed. Count is: {this.count}");
+        }
+        else
+        {
+            Console.WriteLine($"{this.name} dispose already called before!");
         }
     }
 }
