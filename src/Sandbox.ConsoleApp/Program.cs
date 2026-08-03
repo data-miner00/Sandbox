@@ -3,7 +3,6 @@
     using System;
     using System.Text;
     using Sandbox.Concepts.Bcl.Threading;
-    using Sandbox.Nuget.NetCore;
     using SixLabors.ImageSharp;
     using SixLabors.ImageSharp.Metadata.Profiles.Exif;
     using SixLabors.ImageSharp.Metadata.Profiles.Iptc;

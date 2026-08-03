@@ -8,11 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bogus" Version="35.6.5" />
-    <PackageReference Include="Microsoft.KernelMemory" Version="0.98.250508.3" />
-    <PackageReference Include="Microsoft.KernelMemory.WebClient" Version="0.98.250508.3" />
-    <PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.72.0" />
-    <PackageReference Include="System.IO.Hashing" Version="10.0.3" />
+    <PackageReference Include="Bogus" />
+    <PackageReference Include="Microsoft.KernelMemory" />
+    <PackageReference Include="Microsoft.KernelMemory.WebClient" />
+    <PackageReference Include="Microsoft.SemanticKernel.Core" />
+    <PackageReference Include="System.IO.Hashing" />
   </ItemGroup>
 
 </Project>

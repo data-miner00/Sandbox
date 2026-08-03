@@ -8,28 +8,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotenv.net" Version="4.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="10.3.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.1.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="7.1.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
+    <PackageReference Include="dotenv.net" />
+    <PackageReference Include="Microsoft.Extensions.Http.Resilience" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" />
   </ItemGroup>
 
   <!-- Logging packages -->
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="Serilog" Version="4.3.1" />
-    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
-    <PackageReference Include="Serilog.Enrichers.AssemblyName" Version="2.0.0" />
-    <PackageReference Include="Serilog.Enrichers.Context" Version="4.6.5" />
-    <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
-    <PackageReference Include="Serilog.Enrichers.Thread" Version="4.0.0" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
-    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="Serilog" />
+    <PackageReference Include="Serilog.AspNetCore" />
+    <PackageReference Include="Serilog.Enrichers.AssemblyName" />
+    <PackageReference Include="Serilog.Enrichers.Context" />
+    <PackageReference Include="Serilog.Enrichers.Environment" />
+    <PackageReference Include="Serilog.Enrichers.Thread" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="Serilog.Sinks.File" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp" Version="10.3.0.106239" />
+    <PackageReference Update="SonarAnalyzer.CSharp" />
   </ItemGroup>
 
 </Project>
