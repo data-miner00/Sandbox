@@ -15,6 +15,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0" />
     <PackageReference Include="sandbox.nuget.netcorew" Version="1.0.0" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.12" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
   </ItemGroup>
 
@@ -22,6 +23,15 @@
     <ProjectReference Include="..\Sandbox.Concepts\Sandbox.Concepts.csproj" />
     <ProjectReference Include="..\Sandbox.Silo\Sandbox.Silo.csproj" />
     <ProjectReference Include="..\Sandbox.SQLite\Sandbox.SQLite.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CropCircleW.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="IMG_3808.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

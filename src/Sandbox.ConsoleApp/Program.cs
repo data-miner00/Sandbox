@@ -4,72 +4,86 @@
     using System.Text;
     using Sandbox.Concepts.Bcl.Threading;
     using Sandbox.Nuget.NetCore;
+    using SixLabors.ImageSharp;
+    using SixLabors.ImageSharp.Metadata.Profiles.Exif;
+    using SixLabors.ImageSharp.Metadata.Profiles.Iptc;
+    using SixLabors.ImageSharp.PixelFormats;
+    using SixLabors.ImageSharp.Processing;
 
     /// <summary>
     /// A sandbox class to play around and experiment with.
     /// </summary>
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point of the sandbox.
-        /// </summary>
-        /// <param name="args">The command line arguments.</param>
         public static void Main(string[] args)
         {
-            var data = "hello, world";
+            using Image<Rgba32> image = Image.Load<Rgba32>("IMG_3808.jpg");
 
-            var binaryData = GetCharBytes(data);
+            var meta = image.Metadata;
 
-            PrintBits(binaryData);
-
-            Console.WriteLine();
-        }
-
-        public static bool[] ToEightBitBoolArray(this int value)
-        {
-            if (value < 0 || value > 255)
+            if (meta.ExifProfile is { } exif)
             {
-                throw new ArgumentOutOfRangeException(nameof(value), "Value must be between 0 and 255.");
+                exif.TryGetValue(ExifTag.Make, out var a);
+                exif.TryGetValue(ExifTag.Model, out var bb);
+                exif.TryGetValue(ExifTag.DateTimeOriginal, out var cc);
+                DateTime.TryParse(cc.Value, out var res);
+                exif.TryGetValue(ExifTag.Orientation, out var dd);
+                exif.TryGetValue(ExifTag.GPSLatitude, out var gg);
+                exif.TryGetValue(ExifTag.GPSLongitude, out var pp);
             }
 
-            bool[] bits = new bool[8];
-            for (int i = 0; i < 8; i++)
+            // IPTC — auto-populate title and tags
+            if (meta.IptcProfile is { } iptc)
             {
-                bits[7 - i] = (value & (1 << i)) != 0;
+                var ea = iptc.GetValues(IptcTag.Caption)?.FirstOrDefault()?.Value;
+
+                var keywords = iptc.GetValues(IptcTag.Keywords)
+                                   ?.Select(v => v.Value)
+                                   .Where(v => !string.IsNullOrWhiteSpace(v))
+                                   .ToList();
             }
 
-            return bits;
-        }
+            var b = image.Clone();
+            b.Mutate(x => x.Invert());
+            b.SaveAsJpeg("Inverted.jpeg");
 
-        private static bool[] GetCharBytes(string input)
-        {
-            // return input.Length.ToEightBitBoolArray();
+            var c = image.Clone();
+            c.Mutate(x => x.BlackWhite());
+            c.SaveAsJpeg("BlackWhite.jpeg");
 
-            var bytes = Encoding.ASCII.GetBytes(input);
+            var d = image.Clone();
+            d.Mutate(x => x.Brightness(0.5f));
+            d.SaveAsJpeg("Brightness.jpeg");
 
-            var result = new bool[bytes.Length * 8];
+            var e = image.Clone();
+            e.Mutate(x => x.GaussianSharpen());
+            e.SaveAsJpeg("GaussianSharpen.jpeg");
 
-            for (int j = 0; j < bytes.Length; j++)
+            image.ProcessPixelRows(accessor =>
             {
-                var bits = ((int)bytes[j]).ToEightBitBoolArray();
+                // Color is pixel-agnostic, but it's implicitly convertible to the Rgba32 pixel type
+                Rgba32 transparent = Color.Transparent;
 
-                for (int i = 0; i < bits.Length; i++)
+                for (int y = 0; y < accessor.Height; y++)
                 {
-                    result[(j * 8) + i] = bits[i];
+                    Span<Rgba32> pixelRow = accessor.GetRowSpan(y);
+
+                    // pixelRow.Length has the same value as accessor.Width,
+                    // but using pixelRow.Length allows the JIT to optimize away bounds checks:
+                    for (int x = 0; x < pixelRow.Length; x++)
+                    {
+                        // Get a reference to the pixel at position x
+                        ref Rgba32 pixel = ref pixelRow[x];
+                        if (pixel.A == 0)
+                        {
+                            // Overwrite the pixel referenced by 'ref Rgba32 pixel':
+                            pixel = transparent;
+                        }
+                    }
                 }
-            }
+            });
 
-            return result;
-        }
-
-        private static void PrintBits(bool[] bits)
-        {
-            foreach (var bit in bits)
-            {
-                Console.Write(bit ? '1' : '0');
-            }
-
-            Console.WriteLine();
+            image.SaveAsJpeg("modified.jpeg");
         }
     }
 }
