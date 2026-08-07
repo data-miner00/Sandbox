@@ -1,5 +1,6 @@
 <Project>
   <ItemGroup>
+    <PackageVersion Include="Microsoft.Extensions.TimeProvider.Testing" Version="10.8.0" />
     <PackageVersion Include="Microsoft.SemanticKernel.Core" Version="1.78.0" />
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="10.0.10" />
     <PackageVersion Include="BenchmarkDotNet" Version="0.15.8" />
@@ -7,7 +8,6 @@
     <PackageVersion Include="IronOcr" Version="2026.8.1" />
     <PackageVersion Include="OpenCvSharp4" Version="4.13.0.20260627" />
     <PackageVersion Include="OpenCvSharp4.runtime.win" Version="4.13.0.20260627" />
-
     <!-- ImageSharp Version 4 requires license -->
     <PackageVersion Include="SixLabors.ImageSharp" Version="3.1.12" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
