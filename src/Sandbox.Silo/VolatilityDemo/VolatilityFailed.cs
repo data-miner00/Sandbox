@@ -5,7 +5,12 @@
     using System.Diagnostics;
     using System.Text;
 
-    public class Volatility
+    /// <summary>
+    /// Intended to demonstrate that a <see langword="volatile"/> field (<see cref="name"/>) is always
+    /// visible fresh across threads while a plain field (<see cref="age"/>) can be observed stale.
+    /// It does not actually demonstrate that - see VOLATILITY.md in this folder for why.
+    /// </summary>
+    public class VolatilityFailed
     {
         private volatile string name = "John";
         private int age = 14;
@@ -20,7 +25,7 @@
              */
             Console.WriteLine("Thread Id in main is {0}", Environment.CurrentManagedThreadId);
             var task2 = this.ThreadTwo().ConfigureAwait(false);
-            
+
             _ = this.ThreadOne().ConfigureAwait(false);
 
             await task2;
