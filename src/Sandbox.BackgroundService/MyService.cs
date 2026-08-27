@@ -8,7 +8,6 @@ public class MyService : HostedService
     {
         Console.WriteLine("Stopping...");
         await base.StopAsync(stoppingToken);
-        await Task.Delay(30000);
         Console.WriteLine("Stopped.");
     }
 
@@ -16,11 +15,19 @@ public class MyService : HostedService
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-            Console.WriteLine("Hello World");
-
+            await HeavyStuffs();
             await Task.Delay(1000);
         }
 
         Console.WriteLine("Executed Async");
+    }
+
+    private async Task HeavyStuffs()
+    {
+        Console.WriteLine("Hello World");
+
+        await Task.Delay(10000);
+
+        Console.WriteLine("Bye World");
     }
 }
