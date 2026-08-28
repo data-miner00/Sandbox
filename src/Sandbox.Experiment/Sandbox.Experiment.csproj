@@ -9,9 +9,6 @@
 
   <ItemGroup>
     <PackageReference Include="Bogus" />
-    <PackageReference Include="Microsoft.KernelMemory" />
-    <PackageReference Include="Microsoft.KernelMemory.WebClient" />
-    <PackageReference Include="Microsoft.SemanticKernel.Core" />
     <PackageReference Include="System.IO.Hashing" />
   </ItemGroup>
 
