@@ -22,6 +22,7 @@ public static class Program
 
         var app = builder.Build();
 
+        app.MapFallback(() => Results.Redirect("/swagger"));
         app.UseSerilogRequestLogging();
         app.UseSwagger();
         app.UseSwaggerUI();
