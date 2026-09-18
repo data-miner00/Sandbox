@@ -48,6 +48,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.Cache", "Sandbox.Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.BackgroundService", "Sandbox.BackgroundService\Sandbox.BackgroundService.csproj", "{BAF7E741-CC71-40FE-B42B-C8BB72975696}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox.McpServer", "Sandbox.McpServer\Sandbox.McpServer.csproj", "{9B15B897-6A6B-4BCA-8928-49FA35975406}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +112,10 @@ Global
 		{BAF7E741-CC71-40FE-B42B-C8BB72975696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAF7E741-CC71-40FE-B42B-C8BB72975696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAF7E741-CC71-40FE-B42B-C8BB72975696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B15B897-6A6B-4BCA-8928-49FA35975406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B15B897-6A6B-4BCA-8928-49FA35975406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B15B897-6A6B-4BCA-8928-49FA35975406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B15B897-6A6B-4BCA-8928-49FA35975406}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -121,6 +127,7 @@ Global
 		{9F80EE50-A183-4D39-9566-7D630133935E} = {31F5CB94-0F31-4C59-BC13-DB1DDCBF255D}
 		{B4AB3A9E-07B0-456A-B9C3-D762AC129F61} = {F8EF19CD-AF7C-4B69-9DE2-897BE85F841F}
 		{CD5DF40E-B1BE-4310-B463-166492E4A606} = {F8EF19CD-AF7C-4B69-9DE2-897BE85F841F}
+		{9B15B897-6A6B-4BCA-8928-49FA35975406} = {31F5CB94-0F31-4C59-BC13-DB1DDCBF255D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9D926E87-9398-4D88-811F-165D4D822F0A}
