@@ -37,6 +37,7 @@ public class Program
         builder.Services.AddRedaction(opt =>
         {
             opt.SetRedactor<ErasingRedactor>(new DataClassificationSet(MyDataTaxonomy.SensitiveData));
+            opt.SetRedactor<EmailMaskRedactor>(new DataClassificationSet(MyDataTaxonomy.EmailData));
             opt.SetHmacRedactor(opts =>
             {
                 opts.Key = Convert.ToBase64String("ThisIsVerySecureKeyAndItMustBeGreaterThan44CharsLong!"u8);

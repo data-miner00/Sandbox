@@ -13,7 +13,7 @@ namespace Sandbox.DataProtection
         public string LastName { get; set; }
 
         [EmailAddress]
-        [PiiData]
+        [EmailData]
         public string Email { get; set; }
 
         [Phone]
