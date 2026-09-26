@@ -1,13 +1,25 @@
 namespace Sandbox.DataProtection;
 
+using Microsoft.Extensions.Compliance.Classification;
+using Microsoft.Extensions.Compliance.Redaction;
 using Swashbuckle.AspNetCore.Filters;
 using System.Reflection;
+using System.Text.Json;
 
 public class Program
 {
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        builder.Logging.ClearProviders();
+        builder.Logging.AddJsonConsole(opt =>
+        {
+            opt.JsonWriterOptions = new JsonWriterOptions
+            {
+                Indented = true,
+            };
+        });
+        builder.Logging.EnableRedaction();
 
         // Add services to the container.
 
@@ -21,6 +33,16 @@ public class Program
             c.ExampleFilters();
         });
         builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
+
+        builder.Services.AddRedaction(opt =>
+        {
+            opt.SetRedactor<ErasingRedactor>(new DataClassificationSet(MyDataTaxonomy.SensitiveData));
+            opt.SetHmacRedactor(opts =>
+            {
+                opts.Key = Convert.ToBase64String("ThisIsVerySecureKeyAndItMustBeGreaterThan44CharsLong!"u8);
+                opts.KeyId = 42;
+            }, new DataClassificationSet(MyDataTaxonomy.PiiData));
+        });
 
         var app = builder.Build();
 
